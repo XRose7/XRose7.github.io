@@ -20,23 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null,"show_result":true},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="XRose&#39;s blog">
-<meta property="og:url" content="http://example.com/index.html">
+    <meta name="description" content="C++ Primer 5th edition 1st part  基本内置类型包括算术类型和 void 类型 Arithmetic type   类型 含义 最小尺寸    bool  undefined   char  8 bit   wchar_t 宽字符 16 bit   char16_t Unicode 16 bit   char32_t Unicode 32 bit   short">
+<meta property="og:type" content="article">
+<meta property="og:title" content="”&quot;C++ Primer&quot; Note——basic“">
+<meta property="og:url" content="http://example.com/2024/01/09/2024-01-06-basic/index.html">
 <meta property="og:site_name" content="XRose&#39;s blog">
+<meta property="og:description" content="C++ Primer 5th edition 1st part  基本内置类型包括算术类型和 void 类型 Arithmetic type   类型 含义 最小尺寸    bool  undefined   char  8 bit   wchar_t 宽字符 16 bit   char16_t Unicode 16 bit   char32_t Unicode 32 bit   short">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-09T11:20:07.000Z">
+<meta property="article:modified_time" content="2024-01-09T12:33:36.588Z">
 <meta property="article:author" content="XRose">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2024/01/09/2024-01-06-basic/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/01/09/2024-01-06-basic/","path":"2024/01/09/2024-01-06-basic/","title":"”\"C++ Primer\" Note——basic“"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>XRose's blog</title>
+<title>”"C++ Primer" Note——basic“ | XRose's blog</title>
   
 
 
@@ -69,7 +74,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">XRose's blog</h1>
+      <p class="site-title">XRose's blog</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -95,7 +100,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -108,6 +113,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">基本内置类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Arithmetic-type"><span class="nav-number">1.1.</span> <span class="nav-text">Arithmetic type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#literal"><span class="nav-number">1.2.</span> <span class="nav-text">literal</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#int-%E5%92%8C-float-%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">1.2.1.</span> <span class="nav-text">int 和 float 字面值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">1.2.2.</span> <span class="nav-text">字符和字符串字面值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#escape-sequence"><span class="nav-number">1.2.3.</span> <span class="nav-text">escape sequence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E5%AD%97%E9%9D%A2%E5%80%BC%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.4.</span> <span class="nav-text">指定字面值的类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%83%E5%B0%94%E5%AD%97%E9%9D%A2%E5%80%BC%E5%92%8C%E6%8C%87%E9%92%88%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">1.2.5.</span> <span class="nav-text">布尔字面值和指针字面值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">变量和对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compound-Type"><span class="nav-number">3.</span> <span class="nav-text">Compound Type</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lvalue-Reference"><span class="nav-number">3.1.</span> <span class="nav-text">(Lvalue) Reference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pointer"><span class="nav-number">3.2.</span> <span class="nav-text">pointer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-pointer"><span class="nav-number">3.2.1.</span> <span class="nav-text">void* pointer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-read-Declarations"><span class="nav-number">3.3.</span> <span class="nav-text">How to read Declarations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const"><span class="nav-number">4.</span> <span class="nav-text">const</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reference-to-const"><span class="nav-number">4.1.</span> <span class="nav-text">reference to const</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#temporary-and-initialization"><span class="nav-number">4.1.1.</span> <span class="nav-text">temporary and initialization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pointer-and-const"><span class="nav-number">4.2.</span> <span class="nav-text">pointer and const</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pointer-to-const"><span class="nav-number">4.2.1.</span> <span class="nav-text">pointer to const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#const-pointer"><span class="nav-number">4.2.2.</span> <span class="nav-text">const pointer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xxx-level-const"><span class="nav-number">4.3.</span> <span class="nav-text">xxx-level const</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#top-level-const"><span class="nav-number">4.3.1.</span> <span class="nav-text">top-level const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#low-level-const"><span class="nav-number">4.3.2.</span> <span class="nav-text">low-level const</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constexpr-and-const-expression"><span class="nav-number">4.4.</span> <span class="nav-text">constexpr and const expression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#const-expression"><span class="nav-number">4.4.1.</span> <span class="nav-text">const expression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#constexpr-variable"><span class="nav-number">4.4.2.</span> <span class="nav-text">constexpr variable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#literal-type"><span class="nav-number">4.4.3.</span> <span class="nav-text">literal type</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">处理类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#type-alias"><span class="nav-number">5.1.</span> <span class="nav-text">type alias</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pointer-const-and-type-alias"><span class="nav-number">5.1.1.</span> <span class="nav-text">pointer , const and type alias</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auto-specifier"><span class="nav-number">5.2.</span> <span class="nav-text">auto specifier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#decltype-sepcifier"><span class="nav-number">5.3.</span> <span class="nav-text">decltype sepcifier</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -147,120 +153,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/2024-01-09-LeetCode88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/09/2024-01-09-LeetCode88/" class="post-title-link" itemprop="url">LeetCode 88 Merge Sorted Array</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-01-09 19:20:07 / Modified: 20:25:13" itemprop="dateCreated datePublished" datetime="2024-01-09T19:20:07+08:00">2024-01-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/top-interview-150/" itemprop="url" rel="index"><span itemprop="name">top-interview-150</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/merge-sorted-array/description/">Merge Sorted Array - LeetCode</a></p>
-</blockquote>
-<h2 id="Thinkings"><a href="#Thinkings" class="headerlink" title="Thinkings"></a>Thinkings</h2><p>直接就是一个蛮力直接插入：）</p>
-<h2 id="Codes"><a href="#Codes" class="headerlink" title="Codes"></a>Codes</h2><h3 id="Brute-force"><a href="#Brute-force" class="headerlink" title="Brute force"></a>Brute force</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; m + j &amp;&amp; j &lt; n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums1[i] &lt;= nums2[j]) &#123;</span><br><span class="line">                ++i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = m + j; k &gt; i; --k) &#123;</span><br><span class="line">                    nums1[k] = nums1[k - <span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                nums1[i] = nums2[j];</span><br><span class="line">                ++i;</span><br><span class="line">                ++j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (i == m + j) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = m + j; k &lt; m + n; ++k, ++j) &#123;</span><br><span class="line">                nums1[k] = nums2[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><p><strong>Time</strong>: O(mn)</p>
-<p><strong>Space</strong>: O(1)</p>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h3 id="Better-Approach-Using-STL"><a href="#Better-Approach-Using-STL" class="headerlink" title="Better Approach: Using STL"></a>Better Approach: Using STL</h3><ol>
-<li><p>Traverse through nums2 and append its elements to the end of nums1 starting from index m.</p>
-</li>
-<li><p>Sort the entire nums1 array using sort() function.</p>
-</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>, i = m; j&lt;n; j++)&#123;</span><br><span class="line">            nums1[i] = nums2[j];</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(nums1.<span class="built_in">begin</span>(),nums1.<span class="built_in">end</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Time</strong>: O((m+n)log(m+n))</p>
-<p><strong>Space</strong>: O(1)</p>
-<h3 id="Better-Approach-Two-pointer"><a href="#Better-Approach-Two-pointer" class="headerlink" title="Better Approach: Two pointer"></a>Better Approach: Two pointer</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = m - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> j = n - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> k = m + n - <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (j &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &gt;= <span class="number">0</span> &amp;&amp; nums1[i] &gt; nums2[j]) &#123;</span><br><span class="line">                nums1[k--] = nums1[i--];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                nums1[k--] = nums2[j--];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Time</strong>: O(m+n)</p>
-<p><strong>Space</strong>: O(1)</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/2024-01-06-basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -274,13 +177,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="name" content="”"C++ Primer" Note——basic“ | XRose's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/09/2024-01-06-basic/" class="post-title-link" itemprop="url">”"C++ Primer" Note——basic“</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          ”"C++ Primer" Note——basic“
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -312,8 +215,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
+    <div class="post-body" itemprop="articleBody"><blockquote>
 <p>C++ Primer 5th edition 1st part</p>
 </blockquote>
 <h2 id="基本内置类型"><a href="#基本内置类型" class="headerlink" title="基本内置类型"></a>基本内置类型</h2><p>包括算术类型和 void 类型</p>
@@ -580,7 +482,6 @@
 <p>TODO</p>
 </blockquote>
 
-      
     </div>
 
     
@@ -588,100 +489,28 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/09/2024-01-09-LeetCode872/" rel="prev" title="LeetCode 872 Leaf-Similar Trees">
+                  <i class="fa fa-angle-left"></i> LeetCode 872 Leaf-Similar Trees
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/01/09/2024-01-09-LeetCode88/" rel="next" title="LeetCode 88 Merge Sorted Array">
+                  LeetCode 88 Merge Sorted Array <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/2024-01-09-LeetCode872/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/09/2024-01-09-LeetCode872/" class="post-title-link" itemprop="url">LeetCode 872 Leaf-Similar Trees</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-01-09 18:08:07 / Modified: 20:23:40" itemprop="dateCreated datePublished" datetime="2024-01-09T18:08:07+08:00">2024-01-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/leaf-similar-trees/description/">Leaf-Similar Trees - LeetCode</a></p>
-</blockquote>
-<h2 id="Thinkings"><a href="#Thinkings" class="headerlink" title="Thinkings"></a>Thinkings</h2><p><strong>二叉树无论先中后序遍历，所得叶子节点次序不变</strong>. </p>
-<h2 id="Codes"><a href="#Codes" class="headerlink" title="Codes"></a>Codes</h2><p>我采用了非递归的中序遍历方式：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),</span></span><br><span class="line"><span class="comment"> * right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">leafSimilar</span><span class="params">(TreeNode* root1, TreeNode* root2)</span> </span>&#123;</span><br><span class="line">        std::vector&lt;<span class="type">int</span>&gt; leaf1;</span><br><span class="line">        std::vector&lt;<span class="type">int</span>&gt; leaf2;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// InOrder Traverse</span></span><br><span class="line">        std::stack&lt;TreeNode*&gt; stack1;</span><br><span class="line">        TreeNode* p1 = root1;</span><br><span class="line">        <span class="keyword">while</span> (p1 || !stack1.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p1) &#123;</span><br><span class="line">                stack1.<span class="built_in">push</span>(p1);</span><br><span class="line">                p1 = p1-&gt;left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                p1 = stack1.<span class="built_in">top</span>();</span><br><span class="line">                stack1.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">if</span> (!p1-&gt;right) &#123;</span><br><span class="line">                    leaf1.<span class="built_in">push_back</span>(p1-&gt;val);</span><br><span class="line">                &#125;</span><br><span class="line">                p1 = p1-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        std::stack&lt;TreeNode*&gt; stack2;</span><br><span class="line">        TreeNode* p2 = root2;</span><br><span class="line">        <span class="keyword">while</span> (p2 || !stack2.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p2) &#123;</span><br><span class="line">                stack2.<span class="built_in">push</span>(p2);</span><br><span class="line">                p2 = p2-&gt;left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                p2 = stack2.<span class="built_in">top</span>();</span><br><span class="line">                stack2.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">if</span> (!p2-&gt;right) &#123;</span><br><span class="line">                    leaf2.<span class="built_in">push_back</span>(p2-&gt;val);</span><br><span class="line">                &#125;</span><br><span class="line">                p2 = p2-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> leaf1 == leaf2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Time</strong>: O(n)</p>
-<p><strong>Space</strong>: O(n)</p>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a><code>vector</code></h3><p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/vector">std::vector - cppreference.com</a></p>
-<h3 id="stack"><a href="#stack" class="headerlink" title="stack"></a><code>stack</code></h3><p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/stack">std::stack - cppreference.com</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
