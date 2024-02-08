@@ -28,7 +28,7 @@
 <meta property="og:description" content="Group Anagrams - LeetCode  Thinkings首先维护一个 strs 中 str 里各字符出现的次数的二维数组 count ，再遍历一遍 strs 将 count 结果相同的 str 整理到一起，再返回该结果.  My brute force Codes12345678910111213141516171819202122232425262728293031323334">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-06T14:00:07.000Z">
-<meta property="article:modified_time" content="2024-02-06T15:31:55.589Z">
+<meta property="article:modified_time" content="2024-02-08T11:02:57.965Z">
 <meta property="article:author" content="XRose">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="array&#x2F;string">
@@ -129,7 +129,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -140,7 +140,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -195,9 +195,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-02-06 22:00:07 / Modified: 23:31:55" itemprop="dateCreated datePublished" datetime="2024-02-06T22:00:07+08:00">2024-02-06</time>
+      <time title="Created: 2024-02-06 22:00:07" itemprop="dateCreated datePublished" datetime="2024-02-06T22:00:07+08:00">2024-02-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-08 19:02:57" itemprop="dateModified" datetime="2024-02-08T19:02:57+08:00">2024-02-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -229,6 +235,7 @@
 <h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h3 id="Better-approach"><a href="#Better-approach" class="headerlink" title="Better approach"></a>Better approach</h3><p>上述代码中的双循环可以使用一个 hash map 辅助单循环的方式取代. 而 hash map 的 key 可以是 str 的排序后值，也可以是 str 的 count 缩写（如： str: <code>aab</code> 的缩写为 <code>a2b1</code> ）， value 则为 str 对应的 Anagram 数组. 甚至可以用 str 各字符对应的质数之积作为 hash map 的 key. </p>
 <h4 id="product-of-prime-numbers-approach"><a href="#product-of-prime-numbers-approach" class="headerlink" title="product of prime numbers approach"></a>product of prime numbers approach</h4><blockquote>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/group-anagrams/solutions/333059/c-map-stringvectorstring-z-by-zrita/">49. 字母异位词分组 - 力扣（LeetCode）</a></p>
+<p><strong>算术基本定理</strong></p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">groupAnagrams</span>(vector&lt;string&gt;&amp; strs) &#123;</span><br><span class="line">        vector&lt;vector&lt;string&gt;&gt; res;</span><br><span class="line">        unordered_map &lt;<span class="type">double</span>,vector&lt;string&gt;&gt; m;</span><br><span class="line">        <span class="type">double</span> a[<span class="number">26</span>]=&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">17</span>,<span class="number">19</span>,<span class="number">23</span>,<span class="number">29</span>,<span class="number">31</span>,<span class="number">37</span>,<span class="number">41</span>,<span class="number">43</span>,<span class="number">47</span>,<span class="number">53</span>,<span class="number">59</span>,<span class="number">61</span>,<span class="number">67</span>,<span class="number">71</span>,<span class="number">73</span>,<span class="number">79</span>,<span class="number">83</span>,<span class="number">89</span>,<span class="number">97</span>,<span class="number">101</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(string&amp; s : strs)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">double</span> t = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">char</span> c : s)</span><br><span class="line">                t *= a[c - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            m[t].<span class="built_in">push_back</span>(s);          <span class="comment">//  t 为单词对应的质数乘积， m[t] 则为该单词的异位词构成的 vector </span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; n : m)                <span class="comment">//  n 为键和值组成的 pair </span></span><br><span class="line">            res.<span class="built_in">push_back</span>(n.second);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
@@ -248,6 +255,8 @@
 <p>直接使用数组作为 hash map 的 key . </p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">groupAnagrams</span>(vector&lt;string&gt;&amp; strs) &#123;</span><br><span class="line">        <span class="comment">// 自定义对 array&lt;int, 26&gt; 类型的哈希函数</span></span><br><span class="line">        <span class="keyword">auto</span> arrayHash = [fn = hash&lt;<span class="type">int</span>&gt;&#123;&#125;] (<span class="type">const</span> array&lt;<span class="type">int</span>, <span class="number">26</span>&gt;&amp; arr) -&gt; <span class="type">size_t</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">accumulate</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), <span class="number">0u</span>, [&amp;](<span class="type">size_t</span> acc, <span class="type">int</span> num) &#123;</span><br><span class="line">                <span class="built_in">return</span> (acc &lt;&lt; <span class="number">1</span>) ^ <span class="built_in">fn</span>(num);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        unordered_map&lt;array&lt;<span class="type">int</span>, 26&gt;, vector&lt;string&gt;, <span class="keyword">decltype</span>(arrayHash)&gt; <span class="built_in">mp</span>(<span class="number">0</span>, arrayHash);</span><br><span class="line">        <span class="keyword">for</span> (string&amp; str: strs) &#123;</span><br><span class="line">            array&lt;<span class="type">int</span>, 26&gt; counts&#123;&#125;;</span><br><span class="line">            <span class="type">int</span> length = str.<span class="built_in">length</span>();</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; length; ++i) &#123;</span><br><span class="line">                counts[str[i] - <span class="string">&#x27;a&#x27;</span>] ++;</span><br><span class="line">            &#125;</span><br><span class="line">            mp[counts].<span class="built_in">emplace_back</span>(str);</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;vector&lt;string&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> it = mp.<span class="built_in">begin</span>(); it != mp.<span class="built_in">end</span>(); ++it) &#123;</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(it-&gt;second);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>Time: O(kn) </p>
+<p>Space: O(kn) </p>
 <blockquote>
 <ol>
 <li><p><code>decltype()</code> 指的是之前声明的变量类型，如 <code>decltye(x)</code> 返回 <code>x</code> 之前声明的变量类型。</p>

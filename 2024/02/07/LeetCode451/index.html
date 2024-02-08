@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null,"show_result":true},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Sort Characters By Frequency - LeetCode  Thinkings记录各字符的频次，依据其重写 sort 函数的 Compare 参数.  Codes 最慢的方法:)   12345678910111213class Solution &#123;public:    string frequencySort(string s) &#123;        un">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 451 Sort Characters By Frequency">
+<meta property="og:url" content="http://example.com/2024/02/07/LeetCode451/index.html">
+<meta property="og:site_name" content="XRose&#39;s blog">
+<meta property="og:description" content="Sort Characters By Frequency - LeetCode  Thinkings记录各字符的频次，依据其重写 sort 函数的 Compare 参数.  Codes 最慢的方法:)   12345678910111213class Solution &#123;public:    string frequencySort(string s) &#123;        un">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-07T15:20:07.000Z">
+<meta property="article:modified_time" content="2024-02-08T13:47:53.479Z">
+<meta property="article:author" content="XRose">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="array&#x2F;string">
+<meta property="article:tag" content="sorting">
+<meta property="article:tag" content="hash-map">
+<meta property="article:tag" content="heap(priority-queue)">
+<meta property="article:tag" content="bucket-sort">
+<meta property="article:tag" content="counting">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024/02/07/LeetCode451/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/02/07/LeetCode451/","path":"2024/02/07/LeetCode451/","title":"LeetCode 451 Sort Characters By Frequency"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>LeetCode 451 Sort Characters By Frequency | XRose's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">XRose's blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Thinkings"><span class="nav-number">1.</span> <span class="nav-text">Thinkings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Codes"><span class="nav-number">2.</span> <span class="nav-text">Codes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">3.</span> <span class="nav-text">Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bucket-sort-approach"><span class="nav-number">3.1.</span> <span class="nav-text">Bucket sort approach</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Structured-binding-C-17"><span class="nav-number">3.1.1.</span> <span class="nav-text">Structured binding (C++17)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Priority-queue-heap-approach"><span class="nav-number">3.2.</span> <span class="nav-text">Priority queue(heap) approach</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Faster-priority-queue-heap-approach"><span class="nav-number">3.2.1.</span> <span class="nav-text">Faster priority queue(heap) approach</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-expression-comp-a-b"><span class="nav-number">3.3.</span> <span class="nav-text">The expression comp(a, b)</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">XRose</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/07/LeetCode451/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="LeetCode 451 Sort Characters By Frequency | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LeetCode 451 Sort Characters By Frequency
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-02-07 23:20:07" itemprop="dateCreated datePublished" datetime="2024-02-07T23:20:07+08:00">2024-02-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-08 21:47:53" itemprop="dateModified" datetime="2024-02-08T21:47:53+08:00">2024-02-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/sort-characters-by-frequency/description/">Sort Characters By Frequency - LeetCode</a></p>
+</blockquote>
+<h2 id="Thinkings"><a href="#Thinkings" class="headerlink" title="Thinkings"></a>Thinkings</h2><p>记录各字符的频次，依据其重写 <code>sort</code> 函数的 <code>Compare</code> 参数. </p>
+<h2 id="Codes"><a href="#Codes" class="headerlink" title="Codes"></a>Codes</h2><blockquote>
+<p>最慢的方法:) </p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">frequencySort</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;c : s) &#123;</span><br><span class="line">            ++m[c];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>(), [&amp;](<span class="type">char</span> &amp;a, <span class="type">char</span> &amp;b) &#123;</span><br><span class="line">            <span class="keyword">return</span> m[a] &gt; m[b] || (m[a] == m[b] &amp;&amp; a &lt; b); </span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Time: O(knlogn) </p>
+<p>Space: O(nlogn) </p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/algorithm/sort">std::sort - cppreference.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/lambda">Lambda expressions (since C++11) - cppreference.com</a></p>
+<p>其中， <code>comp</code> 参数使用了 lambda 表达式，其捕获列表使用了 <code>&amp;</code>  引用传递方式。而值捕获也可以，但是此时 lambda 里面的 m 类型为 <code>const unordered_map&lt;char, int&gt;</code> 类型，函数体里对 m 进行访问不能使用 <code>[]</code> ，必须使用 <code>at()</code> 才行（因为只有 <code>at()</code> 可以返回常量引用. ）</p>
+<p>值捕获示例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[m](<span class="type">char</span> &amp;a, <span class="type">char</span> &amp;b) &#123;</span><br><span class="line">    <span class="keyword">return</span> m.<span class="built_in">at</span>(a) &gt; m.<span class="built_in">at</span>(b) || (m.<span class="built_in">at</span>(a) == m.<span class="built_in">at</span>(b) &amp;&amp; a &lt; b); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h3 id="Bucket-sort-approach"><a href="#Bucket-sort-approach" class="headerlink" title="Bucket sort approach"></a>Bucket sort approach</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">frequencySort</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; map;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">const</span> <span class="type">char</span>&amp; c : s)&#123;</span><br><span class="line">            ++map[c];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">vector&lt;string&gt; <span class="title">bucket</span><span class="params">(n + <span class="number">1</span>, <span class="string">&quot;&quot;</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> [c, freq] : map) &#123;</span><br><span class="line">            bucket[freq].<span class="built_in">append</span>(freq, c);</span><br><span class="line">        &#125;</span><br><span class="line">        string ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; --i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!bucket[i].<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                ans.<span class="built_in">append</span>(bucket[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Time: O(n) </p>
+<p>Space: O(n) </p>
+<blockquote>
+<p>对于 <code>unordered_map</code> 遍历这事，上文中提到了：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> [c, freq] : map) &#123;</span><br><span class="line">    bucket[freq].<span class="built_in">append</span>(freq, c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Structured binding</strong>的方式. </p>
+</blockquote>
+<h4 id="Structured-binding-C-17"><a href="#Structured-binding-C-17" class="headerlink" title="Structured binding (C++17)"></a>Structured binding (C++17)</h4><p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/structured_binding">Structured binding declaration (since C++17) - cppreference.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e6f9bfaaf150">C++17 结构化绑定(Structured Bindings)初探 - 简书 (jianshu.com)</a></p>
+<blockquote>
+<p>示例：</p>
+<p><strong>值传递</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> [k, v] : map) &#123;</span><br><span class="line">    cout &lt;&lt; k &lt;&lt; v &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>引用传递</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span>&amp; [k, v] : map) &#123;</span><br><span class="line">    cout &lt;&lt; k &lt;&lt; v &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中，如果只想使用键,值可以用 <code>_</code> 代替</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span>&amp; [k, _] : map) &#123;</span><br><span class="line">    cout &lt;&lt; k &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同理，如果只用值，键可以用 <code>_</code> 代替</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span>&amp; [_, v] : map) &#123;</span><br><span class="line">    cout &lt;&lt; v &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>————————————————</p>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_21539375/article/details/122003559">https://blog.csdn.net/qq_21539375/article/details/122003559</a></p>
+</blockquote>
+<h3 id="Priority-queue-heap-approach"><a href="#Priority-queue-heap-approach" class="headerlink" title="Priority queue(heap) approach"></a>Priority queue(heap) approach</h3><p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/priority_queue">std::priority_queue - cppreference.com</a></p>
+<p> <code>priority_queue</code> 默认使用  <code>std::less</code>  来比较（即  <code>&lt;</code>  运算符）<strong>默认构造大根堆</strong>. </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">frequencySort</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;c : s) &#123;</span><br><span class="line">            ++m[c];</span><br><span class="line">        &#125;</span><br><span class="line">        priority_queue&lt;pair&lt;<span class="type">int</span>, <span class="type">char</span>&gt;&gt; pq;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;[first, second] : m) &#123;</span><br><span class="line">            pq.<span class="built_in">push</span>(&#123;second, first&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">while</span> (!pq.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> t = pq.<span class="built_in">top</span>();</span><br><span class="line">            pq.<span class="built_in">pop</span>();</span><br><span class="line">            res.<span class="built_in">append</span>(t.first, t.second);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Time: O(nlogn) </p>
+<p>Space: O(n) </p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/utility/pair/operator_cmp">operator&#x3D;&#x3D;,!&#x3D;,&lt;,&lt;&#x3D;,&gt;,&gt;&#x3D;,&lt;&#x3D;&gt;(std::pair) - cppreference.com</a></p>
+<p> <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/utility/pair"><code>std::pair</code></a> 对 <code>&lt;</code> 运算符的重载：</p>
+<p>按字典序，首先比较 <code>p1</code> ，只有 <code>p1</code> 相等时再比较 <code>p2</code> （until C++20）</p>
+</blockquote>
+<h4 id="Faster-priority-queue-heap-approach"><a href="#Faster-priority-queue-heap-approach" class="headerlink" title="Faster priority queue(heap) approach"></a>Faster priority queue(heap) approach</h4><p><strong>而其中 hash map 可以使用 array 代替以提高速度</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">frequencySort</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">const</span> <span class="type">int</span> hashSize = <span class="number">128</span>;</span><br><span class="line">        <span class="type">int</span> hash[hashSize];</span><br><span class="line">        <span class="built_in">memset</span>(hash, <span class="number">0</span>, <span class="built_in">sizeof</span>(<span class="type">int</span>) * hashSize);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; c : s) &#123;</span><br><span class="line">            ++hash[c];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        priority_queue&lt;pair&lt;<span class="type">int</span>, <span class="type">char</span>&gt;&gt; maxHeap;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; hashSize; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (hash[i]) &#123;</span><br><span class="line">                maxHeap.<span class="built_in">push</span>(&#123;hash[i], i&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        string res = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">while</span> (!maxHeap.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> t = maxHeap.<span class="built_in">top</span>();</span><br><span class="line">            maxHeap.<span class="built_in">pop</span>();</span><br><span class="line">            res += <span class="built_in">string</span>(t.first, t.second);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Time: O(nlogn) </p>
+<p>Space: O(n) </p>
+<blockquote>
+<p>其中 <code>string(t.first, t.second)</code> 是如下的构造函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">basic_string</span>( size_type count, CharT ch,</span><br><span class="line">              <span class="type">const</span> Allocator&amp; alloc = <span class="built_in">Allocator</span>() );</span><br></pre></td></tr></table></figure>
+
+</blockquote>
+<blockquote>
+<p><strong>此外，还可以使用 lambda 表达式定义一个大根堆 maxHeap</strong> </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;priority_queue&lt;pair&lt;<span class="type">int</span>, <span class="type">char</span>&gt;, vector&lt;pair&lt;<span class="type">int</span>, <span class="type">char</span>&gt;&gt;, function&lt;<span class="type">bool</span>(pair&lt;<span class="type">int</span>, <span class="type">char</span>&gt;&amp;, pair&lt;<span class="type">int</span>, <span class="type">char</span>&gt;&amp;)&gt;&gt; </span><br><span class="line"> <span class="built_in">maxHeap</span>([](pair&lt;<span class="type">int</span>, <span class="type">char</span>&gt; &amp;a, pair&lt;<span class="type">int</span>, <span class="type">char</span>&gt; &amp;b) &#123;</span><br><span class="line">     <span class="keyword">return</span> a.first &lt; b.first;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="The-expression-comp-a-b"><a href="#The-expression-comp-a-b" class="headerlink" title="The expression comp(a, b)"></a>The expression comp(a, b)</h3><p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/named_req/Compare">C++ named requirements: Compare - cppreference.com</a></p>
+<p> <code>comp</code> 函数用来比较两个元素 <code>a</code> 和 <code>b</code> ，通过 <code>bool</code> 型的返回值来确定 <code>a</code> 和 <code>b</code> 在<strong>严格弱序</strong>中的相对位置，如果是 <code>true</code> ，那么 <code>a</code> 在严格弱序序列中就在 <code>b</code> 之前，否则在 <code>b</code> 之后。</p>
+<blockquote>
+<p>严格弱序： <code>&lt;</code> 而非 <code>&lt;=</code> </p>
+</blockquote>
+<p>因此，在 <code>sort</code> 函数中，如果 <code>comp(a, b)</code> 为 <code>true</code> ，那么 <code>sort</code> 函数就会将 <code>a</code> 放在 <code>b</code> 的前面，否则 <code>a</code> 就放在 <code>b</code> 的后面</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28114615/article/details/86495567">sort函数、priority_queue中比较函数的写法_priority_queue cmp比较的写法-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Sansipi/article/details/127858218">C++ priority_queue如何自定义比较函数？和sort里面自定义比较函数有何区别？_queue sort c++-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/tp_0moyi0/article/details/123296966">C++ priority_queue 与 lambda的结合使用_priority_queue和lambda-CSDN博客</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+              <a href="/tags/array-string/" rel="tag"># array/string</a>
+              <a href="/tags/sorting/" rel="tag"># sorting</a>
+              <a href="/tags/hash-map/" rel="tag"># hash-map</a>
+              <a href="/tags/heap-priority-queue/" rel="tag"># heap(priority-queue)</a>
+              <a href="/tags/bucket-sort/" rel="tag"># bucket-sort</a>
+              <a href="/tags/counting/" rel="tag"># counting</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/02/06/LeetCode735/" rel="prev" title="LeetCode 735 Asteroid Collision">
+                  <i class="fa fa-angle-left"></i> LeetCode 735 Asteroid Collision
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">XRose</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
