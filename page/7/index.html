@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -175,6 +175,148 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/12/LeetCode169/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/12/LeetCode169/" class="post-title-link" itemprop="url">LeetCode 169 Majority Element</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-01-12 10:29:07" itemprop="dateCreated datePublished" datetime="2024-01-12T10:29:07+08:00">2024-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-13 00:45:49" itemprop="dateModified" datetime="2024-02-13T00:45:49+08:00">2024-02-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/top-interview-150/" itemprop="url" rel="index"><span itemprop="name">top-interview-150</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/top-interview-150/array-string/" itemprop="url" rel="index"><span itemprop="name">array/string</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/majority-element/description/">Majority Element - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>一开始就想着暴力求解，拿个 map 存各元素的出现次数。后来想一想，先排序再取中间元素就是主元素，可以用反证法证明。</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">return</span> nums[n/<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(nlogn)</p>
+<p>Space: O(logn)</p>
+<blockquote>
+<p>若使用语言自带的排序算法，需要使用 <span class="math inline">\(O(\log{n})\)</span> 的栈空间. 若自己编写<strong>堆排序</strong>，则只需要使用 <span class="math inline">\(O(1)\)</span> 的额外空间.</p>
+</blockquote>
+<h2 id="notes">Notes</h2>
+<h3 id="hash-map-approach">Hash map approach</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; counts;</span><br><span class="line">        <span class="type">int</span> majority = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num: nums) &#123;</span><br><span class="line">            ++counts[num];</span><br><span class="line">            <span class="keyword">if</span> (counts[num] &gt; cnt) &#123;</span><br><span class="line">                majority = num;</span><br><span class="line">                cnt = counts[num];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> majority;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(n)</p>
+<h3 id="b-m-voting-algorithm">B-M Voting Algorithm</h3>
+<p>B-M Voting Algorithm is based on the fact that if there is a majority element in an array, it will always remain in the lead, even after encountering other elements.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> candidate = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (count == <span class="number">0</span>) &#123;</span><br><span class="line">                candidate = num;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (num == candidate) &#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                count--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> candidate;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(1)</p>
+<blockquote>
+<p><strong>关于 B-M Voting Algorithm</strong></p>
+<p>若记 <code>nums</code> 的众数为 <span class="math inline">\(x\)</span> ，数组长度为 <span class="math inline">\(n\)</span> .</p>
+<p><strong>推论一</strong>： 若记<strong>众数</strong>的票数为 +1 ，<strong>非众数</strong>的票数为 -1 ，则一定有所有数字的<strong>票数和</strong> &gt; 0 .</p>
+<p><strong>推论二</strong>： 若数组的前 a 个数字的<strong>票数和</strong> = 0，则数组剩余 (n-a) 个数字的<strong>票数和</strong>一定仍 &gt; 0，即后 (n-a) 个数字的<strong>众数</strong>仍为 <span class="math inline">\(x\)</span> .</p>
+<p>作者：Krahets 链接：https://leetcode.cn/problems/majority-element/solutions/2362000/169-duo-shu-yuan-su-mo-er-tou-piao-qing-ledrh/ 来源：力扣（LeetCode） 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+<h3 id="divide-and-conquer-approach">Divide and conquer approach</h3>
+<blockquote>
+<p>如果数 <span class="math inline">\(a\)</span> 是数组 <code>nums</code> 的众数，如果我们将 <code>nums</code> 分成两部分，那么 <span class="math inline">\(a\)</span> 必定是至少一部分的众数。</p>
+<p>我们可以使用反证法来证明这个结论。假设 <span class="math inline">\(a\)</span> 既不是左半部分的众数，也不是右半部分的众数，那么 a 出现的次数少于 <span class="math inline">\(l / 2 + r / 2\)</span> 次，其中 <span class="math inline">\(l\)</span> 和 <span class="math inline">\(r\)</span> 分别是左半部分和右半部分的长度。由于 <span class="math inline">\(l / 2 + r / 2 &lt;= (l + r) / 2\)</span>，说明 <span class="math inline">\(a\)</span> 也不是数组 <code>nums</code> 的众数，因此出现了矛盾。所以这个结论是正确的。</p>
+<p>这样以来，我们就可以使用分治法解决这个问题：将数组分成左右两部分，分别求出左半部分的众数 a1 以及右半部分的众数 a2，随后在 a1 和 a2 中选出正确的众数。</p>
+<p>算法：</p>
+<p>我们使用经典的分治算法递归求解，直到所有的子问题都是长度为 1 的数组。</p>
+<p>长度为 1 的子数组中唯一的数显然是众数，直接返回即可。如果回溯后某区间的长度大于 1，我们必须将左右子区间的值合并。如果它们的众数相同，那么显然这一段区间的众数是它们相同的值。否则，我们需要比较两个众数在整个区间内出现的次数来决定该区间的众数。</p>
+<p>作者：力扣官方题解 链接：https://leetcode.cn/problems/majority-element/solutions/146074/duo-shu-yuan-su-by-leetcode-solution/ 来源：力扣（LeetCode） 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">count_in_range</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target, <span class="type">int</span> lo, <span class="type">int</span> hi)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = lo; i &lt;= hi; ++i)</span><br><span class="line">            <span class="keyword">if</span> (nums[i] == target)</span><br><span class="line">                ++count;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majority_element_rec</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> lo, <span class="type">int</span> hi)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (lo == hi)</span><br><span class="line">            <span class="keyword">return</span> nums[lo];</span><br><span class="line">        <span class="type">int</span> mid = (lo + hi) / <span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> left_majority = <span class="built_in">majority_element_rec</span>(nums, lo, mid);</span><br><span class="line">        <span class="type">int</span> right_majority = <span class="built_in">majority_element_rec</span>(nums, mid + <span class="number">1</span>, hi);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">count_in_range</span>(nums, left_majority, lo, hi) &gt; (hi - lo + <span class="number">1</span>) / <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> left_majority;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">count_in_range</span>(nums, right_majority, lo, hi) &gt; (hi - lo + <span class="number">1</span>) / <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> right_majority;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">majority_element_rec</span>(nums, <span class="number">0</span>, nums.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(nlogn)</p>
+<p>Space: O(logn)</p>
+<blockquote>
+<p>函数 <code>majority_element_rec()</code> 会求解 2 个长度为 <span class="math inline">\(\dfrac{n}{2}\)</span> 的子问题，并做两遍长度为 n 的线性扫描。因此，分治算法的时间复杂度可以表示为：</p>
+<p><span class="math display">\[
+T(n) = 2T(\frac{n}{2}) + 2n
+\]</span> 根据<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%BB%E5%AE%9A%E7%90%86/3463232?fr=aladdin">主定理</a>，本题满足第二种情况，所以时间复杂度可以表示为： <span class="math display">\[
+\begin{aligned} T(n) &amp;= \Theta(n^{log_{b}a}\log n) \\ &amp;= \Theta(n^{log_{2}2}\log n) \\ &amp;= \Theta(n \log n) \\ \end{aligned}
+\]</span> 尽管分治算法没有直接分配额外的数组空间，但在递归的过程中使用了额外的栈空间。算法每次将数组从中间分成两部分，所以数组长度变为 1 之前需要进行 <span class="math inline">\(O(\log n)\)</span> 次递归，即空间复杂度为 <span class="math inline">\(O(\log n)\)</span> .</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2287,101 +2429,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/LeetCode872/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/09/LeetCode872/" class="post-title-link" itemprop="url">LeetCode 872 Leaf-Similar Trees</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-01-09 18:08:07 / Modified: 20:23:40" itemprop="dateCreated datePublished" datetime="2024-01-09T18:08:07+08:00">2024-01-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/leaf-similar-trees/description/">Leaf-Similar Trees - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p><strong>二叉树无论先中后序遍历，所得叶子节点次序不变</strong>.</p>
-<h2 id="codes">Codes</h2>
-<p>我采用了非递归的中序遍历方式：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),</span></span><br><span class="line"><span class="comment"> * right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">leafSimilar</span><span class="params">(TreeNode* root1, TreeNode* root2)</span> </span>&#123;</span><br><span class="line">        std::vector&lt;<span class="type">int</span>&gt; leaf1;</span><br><span class="line">        std::vector&lt;<span class="type">int</span>&gt; leaf2;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// InOrder Traverse</span></span><br><span class="line">        std::stack&lt;TreeNode*&gt; stack1;</span><br><span class="line">        TreeNode* p1 = root1;</span><br><span class="line">        <span class="keyword">while</span> (p1 || !stack1.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p1) &#123;</span><br><span class="line">                stack1.<span class="built_in">push</span>(p1);</span><br><span class="line">                p1 = p1-&gt;left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                p1 = stack1.<span class="built_in">top</span>();</span><br><span class="line">                stack1.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">if</span> (!p1-&gt;right) &#123;</span><br><span class="line">                    leaf1.<span class="built_in">push_back</span>(p1-&gt;val);</span><br><span class="line">                &#125;</span><br><span class="line">                p1 = p1-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        std::stack&lt;TreeNode*&gt; stack2;</span><br><span class="line">        TreeNode* p2 = root2;</span><br><span class="line">        <span class="keyword">while</span> (p2 || !stack2.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p2) &#123;</span><br><span class="line">                stack2.<span class="built_in">push</span>(p2);</span><br><span class="line">                p2 = p2-&gt;left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                p2 = stack2.<span class="built_in">top</span>();</span><br><span class="line">                stack2.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">if</span> (!p2-&gt;right) &#123;</span><br><span class="line">                    leaf2.<span class="built_in">push_back</span>(p2-&gt;val);</span><br><span class="line">                &#125;</span><br><span class="line">                p2 = p2-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> leaf1 == leaf2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>Time</strong>: O(n)</p>
-<p><strong>Space</strong>: O(n)</p>
-<h2 id="notes">Notes</h2>
-<h3 id="vector"><code>vector</code></h3>
-<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/vector">std::vector - cppreference.com</a></p>
-<h3 id="stack"><code>stack</code></h3>
-<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/stack">std::stack - cppreference.com</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
