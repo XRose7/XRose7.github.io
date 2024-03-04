@@ -426,9 +426,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-02-23 23:43:07 / Modified: 23:37:51" itemprop="dateCreated datePublished" datetime="2024-02-23T23:43:07+08:00">2024-02-23</time>
+      <time title="Created: 2024-02-23 23:43:07" itemprop="dateCreated datePublished" datetime="2024-02-23T23:43:07+08:00">2024-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-03-04 15:46:51" itemprop="dateModified" datetime="2024-03-04T15:46:51+08:00">2024-03-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -476,6 +482,10 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">static</span> <span class="keyword">constexpr</span> <span class="type">int</span> INF = <span class="number">10000</span> * <span class="number">101</span> + <span class="number">1</span>;</span><br><span class="line">	<span class="type">static</span> <span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">findCheapestPrice</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; flights, <span class="type">int</span> src, <span class="type">int</span> dst, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dist</span><span class="params">(N, INF)</span></span>;</span><br><span class="line">        dist[src] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> limit = <span class="number">0</span>; limit &lt; k + <span class="number">1</span>; ++limit) &#123;</span><br><span class="line">			<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">clone</span><span class="params">(dist)</span></span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">auto</span> f : flights) &#123;</span><br><span class="line">				<span class="type">int</span> x = f[<span class="number">0</span>];</span><br><span class="line">				<span class="type">int</span> y = f[<span class="number">1</span>];</span><br><span class="line">				<span class="type">int</span> w = f[<span class="number">2</span>];</span><br><span class="line">				dist[y] = <span class="built_in">min</span>(dist[y], clone[x] + w);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> dist[dst] &gt; INF / <span class="number">2</span> ? <span class="number">-1</span> : dist[dst];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Time: O((n + m) * k)</p>
 <p>Space: O(n)</p>
+<h2 id="heap-approach">Heap approach</h2>
+<blockquote>
+<p>TODO</p>
+</blockquote>
 
       
     </div>
