@@ -4,6 +4,66 @@
   
     
     <entry>
+      <title>LeetCode 2834 Find the Minimum Possible Sum of a Beautiful Array</title>
+      <link href="/2024/03/08/LeetCode2834/"/>
+      <url>/2024/03/08/LeetCode2834/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><a href="https://leetcode.com/problems/find-the-minimum-possible-sum-of-a-beautiful-array/">Find the Minimum Possible Sum of a Beautiful Array - LeetCode</a></p></blockquote><h2 id="thinkings">Thinkings</h2><p>贪心策略，又因为数据多，要同时考虑时间和空间. 时间方面直接用等差数列求和将 O(n) 降为 O(1) ，而空间要用 <code>long long</code> 储存数据.</p><h2 id="codes">Codes</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumPossibleSum</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">const</span> <span class="type">int</span> MOD = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> m = target &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= m) &#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="type">long</span> <span class="type">long</span>) (<span class="number">1</span> + n) * n / <span class="number">2</span> % MOD;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">return</span> ((<span class="number">1</span> + m) * m / <span class="number">2</span> + (target + target + (n - m) - <span class="number">1</span>) * (n - m) / <span class="number">2</span>) % MOD;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Time: O(1)</p><p>Space: O(1)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> greedy </tag>
+            
+            <tag> math </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode 3005 Count Elements With Maximum Frequency</title>
+      <link href="/2024/03/08/LeetCode3005/"/>
+      <url>/2024/03/08/LeetCode3005/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><a href="https://leetcode.com/problems/count-elements-with-maximum-frequency/">Count Elements With Maximum Frequency - LeetCode</a></p></blockquote><h2 id="thinkings">Thinkings</h2><p>用数组维护每个数的 frequency ，再遍历数组维护最大的 frequency 及其数量，返回其乘积即可.</p><h2 id="codes">Codes</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxFrequencyElements</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">frequency</span><span class="params">(<span class="number">101</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="type">int</span>&amp; num : nums) &#123;</span><br><span class="line">            ++frequency[num];</span><br><span class="line">            <span class="keyword">if</span> (frequency[num] &gt; max) &#123;</span><br><span class="line">                count = <span class="number">1</span>;</span><br><span class="line">                max = frequency[num];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (frequency[num] == max) &#123;</span><br><span class="line">                ++count;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count * max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Time: O(n)</p><p>Space: O(1)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> array/string </tag>
+            
+            <tag> hash-table </tag>
+            
+            <tag> counting </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 2575 Find the Divisibility Array of a String</title>
       <link href="/2024/03/07/LeetCode2575/"/>
       <url>/2024/03/07/LeetCode2575/</url>
@@ -590,9 +650,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> dynamic-programming </tag>
-            
             <tag> array/string </tag>
+            
+            <tag> dynamic-programming </tag>
             
         </tags>
       
@@ -1370,9 +1430,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> dynamic-programming </tag>
-            
             <tag> array/string </tag>
+            
+            <tag> dynamic-programming </tag>
             
             <tag> matrix </tag>
             
