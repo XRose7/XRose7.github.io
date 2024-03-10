@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-count">116</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -175,6 +175,216 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/11/LeetCode1026/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/11/LeetCode1026/" class="post-title-link" itemprop="url">LeetCode 1026 Maximum Difference Between Node and Ancestor</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-01-11 12:22:07 / Modified: 12:56:56" itemprop="dateCreated datePublished" datetime="2024-01-11T12:22:07+08:00">2024-01-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/">Maximum Difference Between Node and Ancestor - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>一眼递归x</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxAncestorDiff</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root) &#123;</span><br><span class="line">            <span class="type">int</span> num1 = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">getMaxRootDiff</span>(root, root-&gt;val, num1);</span><br><span class="line">            <span class="type">int</span> num2 = <span class="built_in">maxAncestorDiff</span>(root-&gt;left);</span><br><span class="line">            <span class="type">int</span> num3 = <span class="built_in">maxAncestorDiff</span>(root-&gt;right);</span><br><span class="line">            res = <span class="built_in">max</span>(res, num1);</span><br><span class="line">            res = <span class="built_in">max</span>(res, num2);</span><br><span class="line">            res = <span class="built_in">max</span>(res, num3);</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">getMaxRootDiff</span><span class="params">(TreeNode* root, <span class="type">int</span> valOfRoot, <span class="type">int</span>&amp; res)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root) &#123;</span><br><span class="line">            <span class="type">int</span> num = <span class="built_in">abs</span>(root-&gt;val - valOfRoot);</span><br><span class="line">            <span class="keyword">if</span> (num &gt; res) &#123;</span><br><span class="line">                res = num;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">getMaxRootDiff</span>(root-&gt;left, valOfRoot, res);</span><br><span class="line">            <span class="built_in">getMaxRootDiff</span>(root-&gt;right, valOfRoot, res);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>time: O(n^2)</p>
+<p>space: O(n^2)</p>
+<h2 id="notes">Notes</h2>
+<h3 id="better-approach">Better approach</h3>
+<p>实际上只需要一次递归遍历找出树中最小值和最大值即可，之所以可行就是因为递归保留现场，左子树的最小值和最大值不会干扰右子树.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxAncestorDiff</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> minVal = root-&gt;val, maxVal = root-&gt;val;</span><br><span class="line">        <span class="built_in">differ</span>(root, minVal, maxVal);</span><br><span class="line">        <span class="keyword">return</span> diff;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> diff = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">differ</span><span class="params">(TreeNode* root, <span class="type">int</span> minVal, <span class="type">int</span> maxVal)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        diff = <span class="built_in">max</span>(diff, <span class="built_in">max</span>(<span class="built_in">abs</span>(minVal - root-&gt;val), <span class="built_in">abs</span>(maxVal - root-&gt;val)));</span><br><span class="line">        minVal = <span class="built_in">min</span>(minVal, root-&gt;val);</span><br><span class="line">        maxVal = <span class="built_in">max</span>(maxVal, root-&gt;val);</span><br><span class="line">        <span class="built_in">differ</span>(root-&gt;left, minVal, maxVal);</span><br><span class="line">        <span class="built_in">differ</span>(root-&gt;right, minVal, maxVal);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>time: O(n)</p>
+<p>space: O(n)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/10/LeetCode2385/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/10/LeetCode2385/" class="post-title-link" itemprop="url">LeetCode 2385 Amount of Time for Binary Tree to Be Infected</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-01-10 11:22:07 / Modified: 11:39:45" itemprop="dateCreated datePublished" datetime="2024-01-10T11:22:07+08:00">2024-01-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/description/">Amount of Time for Binary Tree to Be Infected - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>首先根据参数 <code>start</code> 找到起始节点，可使用任意遍历方法；其次使用非递归的后后序遍历获得各节点的父节点；接着从起始节点开始，使用类层次遍历进行传染并获取层数，得到的层数即传染整棵树所需的时间.</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">amountOfTime</span><span class="params">(TreeNode* root, <span class="type">int</span> start)</span> </span>&#123;</span><br><span class="line">        TreeNode* startNode = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="built_in">findStartNode</span>(root, start, startNode);</span><br><span class="line">        map&lt;TreeNode*, TreeNode*&gt; parentOfNodes = <span class="built_in">getParentOfNodes</span>(root);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">infection</span>(startNode, parentOfNodes);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">findStartNode</span><span class="params">(TreeNode* root, <span class="type">int</span> start, TreeNode*&amp; startNode)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root-&gt;val == start) &#123;</span><br><span class="line">                startNode = root;</span><br><span class="line">                <span class="keyword">return</span> ;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">findStartNode</span>(root-&gt;left, start, startNode);</span><br><span class="line">            <span class="built_in">findStartNode</span>(root-&gt;right, start, startNode);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">infection</span><span class="params">(TreeNode* root, map&lt;TreeNode*, TreeNode*&gt; parentOfNodes)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> time = <span class="number">-1</span>;</span><br><span class="line">        map&lt;TreeNode*, <span class="type">bool</span>&gt;visited;</span><br><span class="line">        deque&lt;TreeNode*&gt; q;</span><br><span class="line">        TreeNode* p = root;</span><br><span class="line">        q.<span class="built_in">push_back</span>(p);</span><br><span class="line">        TreeNode* last = p;</span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            p = q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop_front</span>();</span><br><span class="line">            visited[p] = <span class="literal">true</span>;</span><br><span class="line">            TreeNode* parent = parentOfNodes.<span class="built_in">at</span>(p);</span><br><span class="line">            <span class="keyword">if</span> (parent &amp;&amp; visited[parent] == <span class="literal">false</span>) &#123; <span class="comment">// if key &#x27;parent&#x27; is not in the map, a new pair (parent, false) will be created in the map</span></span><br><span class="line">                q.<span class="built_in">push_back</span>(parent);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p-&gt;left &amp;&amp; visited[p-&gt;left] == <span class="literal">false</span>) &#123;</span><br><span class="line">                q.<span class="built_in">push_back</span>(p-&gt;left);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p-&gt;right &amp;&amp; visited[p-&gt;right] == <span class="literal">false</span>) &#123;</span><br><span class="line">                q.<span class="built_in">push_back</span>(p-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p == last) &#123;</span><br><span class="line">                last = q.<span class="built_in">back</span>();</span><br><span class="line">                ++time;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> time;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">map&lt;TreeNode*, TreeNode*&gt; <span class="title">getParentOfNodes</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        map&lt;TreeNode*, TreeNode*&gt; parentOfNodes;</span><br><span class="line">        stack&lt;TreeNode*&gt; s;</span><br><span class="line">        TreeNode* p = root;</span><br><span class="line">        TreeNode* r = <span class="literal">nullptr</span>;</span><br><span class="line">        TreeNode* parent = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span> (p || !s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p) &#123;</span><br><span class="line">                s.<span class="built_in">push</span>(p);</span><br><span class="line">                p = p-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                p = s.<span class="built_in">top</span>();</span><br><span class="line">                <span class="keyword">if</span> (p-&gt;right &amp;&amp; p-&gt;right != r) &#123;</span><br><span class="line">                    p = p-&gt;right;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    p = s.<span class="built_in">top</span>();</span><br><span class="line">                    s.<span class="built_in">pop</span>();</span><br><span class="line">                    parent = s.<span class="built_in">empty</span>() ? <span class="literal">nullptr</span> : s.<span class="built_in">top</span>();</span><br><span class="line">                    parentOfNodes[p] = parent;</span><br><span class="line">                    r = p;</span><br><span class="line">                    p = <span class="literal">nullptr</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> parentOfNodes;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="complexity">Complexity</h3>
+<p><strong>Time</strong>: O(n)</p>
+<p><strong>Space</strong>: O(n)</p>
+<h2 id="notes">Notes</h2>
+<h3 id="deque"><code>deque</code></h3>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/deque">std::deque - cppreference.com</a></p>
+<h3 id="map"><code>map</code></h3>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/map">std::map - cppreference.com</a></p>
+<h3 id="another-approach">Another approach</h3>
+<ol type="1">
+<li><strong>Graph Construction:</strong>
+<ul>
+<li>The solution creates a graph representation of the tree using a default dictionary <code>g</code> of lists in the <code>dfs</code> (Depth-First Search) function.</li>
+</ul></li>
+<li><strong>Initialization:</strong>
+<ul>
+<li>Initialize an empty set <code>vis</code> to keep track of visited nodes (infected nodes) and a queue <code>q</code> to maintain the BFS's order of node processing, with the start node as the initial node to be processed.</li>
+</ul></li>
+<li><strong>BFS Algorithm:</strong>
+<ul>
+<li>The solution sets up a while loop that continues until the queue <code>q</code> is empty, signifying that there are no more nodes to be infected.<br />
+</li>
+</ul></li>
+<li><strong>Return Value:</strong>
+<ul>
+<li>By the end of the BFS loop, <code>ans</code> holds the number of minutes it took to infect the entire tree since each loop iteration represents one minute of infection time passing.</li>
+<li>The return value <code>ans</code> represents the required number of minutes for the infection to spread through the entire tree, as determined by our BFS algorithm.</li>
+</ul></li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    unordered_map&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;&gt; graph;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">amountOfTime</span><span class="params">(TreeNode* root, <span class="type">int</span> start)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">constructGraph</span>(root);</span><br><span class="line"></span><br><span class="line">        queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">        q.<span class="built_in">push</span>(start);</span><br><span class="line"></span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; visited;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> minutesPassed = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            ++minutesPassed;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> levelSize = q.<span class="built_in">size</span>(); levelSize &gt; <span class="number">0</span>; --levelSize) &#123;</span><br><span class="line">                <span class="type">int</span> currentNode = q.<span class="built_in">front</span>();</span><br><span class="line">                q.<span class="built_in">pop</span>();</span><br><span class="line">                visited.<span class="built_in">insert</span>(currentNode);</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> adjacentNode : graph[currentNode]) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!visited.<span class="built_in">count</span>(adjacentNode)) &#123;</span><br><span class="line">                        q.<span class="built_in">push</span>(adjacentNode);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> minutesPassed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">constructGraph</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root-&gt;left) &#123;</span><br><span class="line">            graph[root-&gt;val].<span class="built_in">push_back</span>(root-&gt;left-&gt;val);</span><br><span class="line">            graph[root-&gt;left-&gt;val].<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root-&gt;right) &#123;</span><br><span class="line">            graph[root-&gt;val].<span class="built_in">push_back</span>(root-&gt;right-&gt;val);</span><br><span class="line">            graph[root-&gt;right-&gt;val].<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">constructGraph</span>(root-&gt;left);</span><br><span class="line">        <span class="built_in">constructGraph</span>(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>Time</strong>: O(n)</p>
+<p><strong>Space</strong>: O(n)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
