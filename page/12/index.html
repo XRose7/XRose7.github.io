@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -175,6 +175,187 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/13/LeetCode1347/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/13/LeetCode1347/" class="post-title-link" itemprop="url">LeetCode 1347 Minimum Number of Steps to Make Two Strings Anagram</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-01-13 15:40:07 / Modified: 15:49:21" itemprop="dateCreated datePublished" datetime="2024-01-13T15:40:07+08:00">2024-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/description/">Minimum Number of Steps to Make Two Strings Anagram - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>一眼就觉得是做一个 <code>map</code> ，当然也可以对两个字符串先排序再双指针对比遍历.</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minSteps</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">char</span>, <span class="type">int</span>&gt;m;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            m[c]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> len = s.<span class="built_in">length</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : t) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m[c] != <span class="number">0</span>) &#123;</span><br><span class="line">                m[c]--;</span><br><span class="line">                len--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(n)</p>
+<h2 id="notes">Notes</h2>
+<p>访问某下标的元素， <code>map</code> 的 <code>operator[]</code> 时间复杂度为 <code>O(logn)</code> 而数组是 <code>O(1)</code> ，因此自建一个数组会更好.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/12/LeetCode189/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/12/LeetCode189/" class="post-title-link" itemprop="url">LeetCode 189 Rotate Array</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-01-12 10:55:07 / Modified: 11:31:19" itemprop="dateCreated datePublished" datetime="2024-01-12T10:55:07+08:00">2024-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/top-interview-150/" itemprop="url" rel="index"><span itemprop="name">top-interview-150</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/rotate-array/description/">Rotate Array - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>之前做过类似的题目，反转反转再反转即可，证明是显然的. 要注意 <code>k</code> 可能大于 <code>nums</code> 的长度，需要先求模.</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rotate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = k % nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>() - m);</span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">end</span>() - m, nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="notes">Notes</h2>
+<h3 id="reverse"><code>reverse</code></h3>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/algorithm/reverse">std::reverse - cppreference.com</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1927,490 +2108,6 @@ T(n) = 2T(\frac{n}{2}) + 2n
 <p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/vector/erase">std::vector::erase - cppreference.com</a></p>
 <h3 id="another-approach">Another Approach</h3>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">removeElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != val)&#123;</span><br><span class="line">                nums[index] = nums[i];</span><br><span class="line">                index++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/LeetCode88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/09/LeetCode88/" class="post-title-link" itemprop="url">LeetCode 88 Merge Sorted Array</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-01-09 19:20:07 / Modified: 20:25:13" itemprop="dateCreated datePublished" datetime="2024-01-09T19:20:07+08:00">2024-01-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/top-interview-150/" itemprop="url" rel="index"><span itemprop="name">top-interview-150</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/merge-sorted-array/description/">Merge Sorted Array - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>直接就是一个蛮力直接插入：）</p>
-<h2 id="codes">Codes</h2>
-<h3 id="brute-force">Brute force</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; m + j &amp;&amp; j &lt; n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums1[i] &lt;= nums2[j]) &#123;</span><br><span class="line">                ++i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = m + j; k &gt; i; --k) &#123;</span><br><span class="line">                    nums1[k] = nums1[k - <span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                nums1[i] = nums2[j];</span><br><span class="line">                ++i;</span><br><span class="line">                ++j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (i == m + j) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = m + j; k &lt; m + n; ++k, ++j) &#123;</span><br><span class="line">                nums1[k] = nums2[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="complexity">Complexity</h3>
-<p><strong>Time</strong>: O(mn)</p>
-<p><strong>Space</strong>: O(1)</p>
-<h2 id="notes">Notes</h2>
-<h3 id="better-approach-using-stl">Better Approach: Using STL</h3>
-<ol type="1">
-<li><p>Traverse through nums2 and append its elements to the end of nums1 starting from index m.</p></li>
-<li><p>Sort the entire nums1 array using sort() function.</p></li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>, i = m; j&lt;n; j++)&#123;</span><br><span class="line">            nums1[i] = nums2[j];</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(nums1.<span class="built_in">begin</span>(),nums1.<span class="built_in">end</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>Time</strong>: O((m+n)log(m+n))</p>
-<p><strong>Space</strong>: O(1)</p>
-<h3 id="better-approach-two-pointer">Better Approach: Two pointer</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = m - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> j = n - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> k = m + n - <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (j &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &gt;= <span class="number">0</span> &amp;&amp; nums1[i] &gt; nums2[j]) &#123;</span><br><span class="line">                nums1[k--] = nums1[i--];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                nums1[k--] = nums2[j--];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>Time</strong>: O(m+n)</p>
-<p><strong>Space</strong>: O(1)</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/cpp-basic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/09/cpp-basic/" class="post-title-link" itemprop="url">C++ Primer Note——basic</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-01-09 19:20:07" itemprop="dateCreated datePublished" datetime="2024-01-09T19:20:07+08:00">2024-01-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-11 19:01:09" itemprop="dateModified" datetime="2024-01-11T19:01:09+08:00">2024-01-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>C++ Primer 5th edition 1st part</p>
-</blockquote>
-<h2 id="基本内置类型">基本内置类型</h2>
-<p>包括算术类型和 void 类型</p>
-<h3 id="arithmetic-type">Arithmetic type</h3>
-<table>
-<thead>
-<tr class="header">
-<th>类型</th>
-<th>含义</th>
-<th>最小尺寸</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>bool</td>
-<td></td>
-<td>undefined</td>
-</tr>
-<tr class="even">
-<td>char</td>
-<td></td>
-<td>8 bit</td>
-</tr>
-<tr class="odd">
-<td>wchar_t</td>
-<td>宽字符</td>
-<td>16 bit</td>
-</tr>
-<tr class="even">
-<td>char16_t</td>
-<td>Unicode</td>
-<td>16 bit</td>
-</tr>
-<tr class="odd">
-<td>char32_t</td>
-<td>Unicode</td>
-<td>32 bit</td>
-</tr>
-<tr class="even">
-<td>short</td>
-<td></td>
-<td>16 bit</td>
-</tr>
-<tr class="odd">
-<td>int</td>
-<td></td>
-<td>16 bit</td>
-</tr>
-<tr class="even">
-<td>long</td>
-<td></td>
-<td>32 bit</td>
-</tr>
-<tr class="odd">
-<td>long long</td>
-<td></td>
-<td>64 bit</td>
-</tr>
-<tr class="even">
-<td>float</td>
-<td></td>
-<td>6 位有效数字</td>
-</tr>
-<tr class="odd">
-<td>double</td>
-<td></td>
-<td>10 位有效数字</td>
-</tr>
-<tr class="even">
-<td>long double</td>
-<td>扩展精度浮点数</td>
-<td>10 位有效数字</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>bool 的取值为 <code>true</code> 或 <code>false</code></p>
-</blockquote>
-<h3 id="literal">literal</h3>
-<p>每个字面值常量都对应一种数据类型，字面值常量的形式和值决定了它的数据类型.</p>
-<h4 id="int-和-float-字面值">int 和 float 字面值</h4>
-<p>整型字面值可以写作十进制数、八进制数或十六进制数的形式.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">20</span>   <span class="comment">// 十进制</span></span><br><span class="line"><span class="number">024</span>  <span class="comment">// 八进制</span></span><br><span class="line"><span class="number">0x14</span> <span class="comment">// 十六进制</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>整型字面值的类型是能容纳其数值的尺寸最小者.</p>
-<p>默认情况下，十进制字面值是带符号数，八进制和十六进制字面值都有可能.</p>
-<p>但严格来说，十进制字面值不会是负数，那个负号并不在字面值之内，其作用仅是对字面值取负值.</p>
-</blockquote>
-<p>浮点型字面值表现为一个小数或以科学计数法表示的指数，其中指数部分用 E 或 e 标识：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.14159</span></span><br><span class="line"><span class="number">3.14159E0</span></span><br><span class="line"><span class="number">0.</span></span><br><span class="line"><span class="number">0e0</span></span><br><span class="line"><span class="number">.001</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>默认情况下，浮点型字面值是 double</p>
-</blockquote>
-<h4 id="字符和字符串字面值">字符和字符串字面值</h4>
-<p>由单引号括起来的一个字符称为 char 型字面值，双引号括起来的零个或多个字符则构成字符串型字面值</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;a&#x27;</span>           <span class="comment">// 字符字面值</span></span><br><span class="line"><span class="string">&quot;Hello World&quot;</span> <span class="comment">// 字符串字面值</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>字符串字面值实际上是由<strong>常量字符构成的数组（array）</strong></p>
-<p>编译器在每个<strong>字符串</strong>的结尾处添加一个空字符（ <code>'\0'</code> ）</p>
-<p>字符串字面值较长时，可采用分开书写：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">std::cout &lt;&lt; <span class="string">&quot;a really, really long string literal &quot;</span></span><br><span class="line">		<span class="string">&quot;that spans two lines&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"><span class="comment">// 分行书写的字符串字面值</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="escape-sequence">escape sequence</h4>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/escape">Escape sequences - cppreference.com</a></p>
-</blockquote>
-<h4 id="指定字面值的类型">指定字面值的类型</h4>
-<p><strong>字符和字符串字面量</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>前缀</th>
-<th>含义</th>
-<th>类型</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>u</td>
-<td>Unicode 16</td>
-<td>char16_t</td>
-</tr>
-<tr class="even">
-<td>U</td>
-<td>Unicode 32</td>
-<td>char32_t</td>
-</tr>
-<tr class="odd">
-<td>L</td>
-<td>宽字符</td>
-<td>wchar_t</td>
-</tr>
-<tr class="even">
-<td>u8</td>
-<td>UTF-8（仅用于字符串字面常量）</td>
-<td>char</td>
-</tr>
-</tbody>
-</table>
-<p><strong>整型字面值</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>后缀</th>
-<th>最小匹配类型</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>u or U</td>
-<td>unsigned</td>
-</tr>
-<tr class="even">
-<td>l or L</td>
-<td>long</td>
-</tr>
-<tr class="odd">
-<td>ll or LL</td>
-<td>long long</td>
-</tr>
-</tbody>
-</table>
-<p><strong>浮点型字面值</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>后缀</th>
-<th>类型</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>f or F</td>
-<td>float</td>
-</tr>
-<tr class="even">
-<td>l or L</td>
-<td>long double</td>
-</tr>
-</tbody>
-</table>
-<h4 id="布尔字面值和指针字面值">布尔字面值和指针字面值</h4>
-<p>true 和 false 是 bool 的字面值</p>
-<p>nullptr 是指针字面值（C++11 开始）</p>
-<blockquote>
-<p>于”指针”部分详细介绍</p>
-</blockquote>
-<h2 id="变量和对象">变量和对象</h2>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/object">Object - cppreference.com</a></p>
-</blockquote>
-<h2 id="compound-type">Compound Type</h2>
-<p>复合类型基于整型和浮点型创建，包括 <code>class</code> , <code>array</code> , <code>string</code> , <code>struct</code> , <code>union</code> , <code>pointer</code> , <code>enum</code> 等.</p>
-<h3 id="lvalue-reference">(Lvalue) Reference</h3>
-<blockquote>
-<p>C++11 中新增了 rvalue reference ，这种引用主要用于内置类.</p>
-<p>严格来说，当我们使用术语 “reference” 时，指的其实是 “lvalue reference”</p>
-</blockquote>
-<h3 id="pointer">pointer</h3>
-<h4 id="void-pointer">void* pointer</h4>
-<p>void* 是一种特殊的指针类型，可用于存放<strong>任意对象的地址</strong>.</p>
-<blockquote>
-<p>利用 void* 指针能做的事很有限：指针比较、作为函数的输入输出或者赋值</p>
-</blockquote>
-<h3 id="how-to-read-declarations">How to read Declarations</h3>
-<blockquote>
-<p>本质是运算符优先级与结合性</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.parr.us/2014/12/29/how-to-read-c-declarations/">How To Read C Declarations (parr.us)</a></p>
-<h2 id="const">const</h2>
-<p>默认状态下， const 对象仅在文件内有效</p>
-<blockquote>
-<p>当以编译时初始化的方式定义一个 const 对象时（如下对 bufSize 的定义）</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> bufSize = <span class="number">512</span>;</span><br></pre></td></tr></table></figure>
-<p>编译器将在编译过程中把用到该变量（如 bufSize ）的地方都替换成对应的值（如 512 ）</p>
-<p>为此，默认情况下 const 对象被设定为仅在文件内有效.</p>
-<p>要想在一个文件中定义一个 const variable 而在其他多个文件中声明并使用它，则需要在声明和定义时，都添加 extern 关键字</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// file.cc 定义并初始化了一个可其他文件访问的 const variable</span></span><br><span class="line"><span class="keyword">extern</span> <span class="type">const</span> <span class="type">int</span> bufSize = <span class="built_in">fcn</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// file.h</span></span><br><span class="line"><span class="keyword">extern</span> <span class="type">const</span> <span class="type">int</span> bufSize; <span class="comment">// 声明 file.cc 中定义的 bufSize </span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="reference-to-const">reference to const</h3>
-<blockquote>
-<p>一般被简称为“<strong>常量引用</strong>”</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> c1 = <span class="number">1024</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> &amp;r1 = c1;</span><br><span class="line"></span><br><span class="line">ri = <span class="number">42</span>; <span class="comment">// error: r1 is a reference to const</span></span><br><span class="line"><span class="type">int</span> &amp;r2 = c1; <span class="comment">// error: r2 cannot bind to a const object</span></span><br></pre></td></tr></table></figure>
-<p>注： C++ 语言并不允许随意改变引用所绑定的对象.</p>
-</blockquote>
-<h4 id="temporary-and-initialization">temporary and initialization</h4>
-<p>我们知道，引用的类型必与与其所引用对象的类型一致，但有两个例外.</p>
-<p>第一种例外就是在初始化 a reference to const 时，允许用任意（结果能转换成引用类型的）表达式作为初始值：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i = <span class="number">42</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> &amp;r1 = i; <span class="comment">// 正确</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> &amp;r2 = <span class="number">42</span>; <span class="comment">// 正确</span></span><br><span class="line">cosnt <span class="type">int</span> &amp;r3 = r1 * <span class="number">2</span>; <span class="comment">// 正确</span></span><br><span class="line"><span class="type">int</span> &amp;r4 = r1 * <span class="number">2</span>; <span class="comment">// 错误</span></span><br></pre></td></tr></table></figure>
-<p>r3 和 r4 实际上绑定的都是 temporary 对象. C++ 语言把类似通过 r4 修改 temporary 变量的行为定为非法.</p>
-<p>因此，一个 reference to const 可以绑定一个非 const object</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i = <span class="number">42</span>;</span><br><span class="line"><span class="type">int</span> &amp;r1 = i; <span class="comment">// r1 bind to i</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> &amp;r2 = i; <span class="comment">// r2 bind to i</span></span><br><span class="line">r1 = <span class="number">0</span>; <span class="comment">// the type of r1 is &#x27;reference to int&#x27;</span></span><br><span class="line">r2 = <span class="number">0</span>; <span class="comment">// error: the type of r2 is &#x27;reference to const int&#x27;</span></span><br></pre></td></tr></table></figure>
-<h3 id="pointer-and-const">pointer and const</h3>
-<h4 id="pointer-to-const">pointer to const</h4>
-<blockquote>
-<p>与 reference to const 类似. 所谓指向常量的指针或引用，不过是自作多情，它们觉得自己指向了指针，所以自觉地不去改变所指对象的值.</p>
-</blockquote>
-<h4 id="const-pointer">const pointer</h4>
-<p>指针是对象而引用不是，因此允许把指针本身定为 const . const pointer 必须初始化，其值（存放在指针中的地址）不能更改.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> errnumb = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> *<span class="type">const</span> curErr = &amp;errNumb; <span class="comment">// curErr 将一直指向 errNumb ，curErr 是一个 const pointer </span></span><br><span class="line"><span class="type">const</span> <span class="type">double</span> pi = <span class="number">3.1415</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> *<span class="type">const</span> pip = &amp;pi; <span class="comment">// pip 是一个指向常量对象的常量指针（pointer to const）</span></span><br></pre></td></tr></table></figure>
-<p>const pointer 并不意味着不能通过指针修改其所指对象的值. 如上就可以通过 curErr 去修改 errNumb 的值，而 pip 则不行.</p>
-<h3 id="xxx-level-const">xxx-level const</h3>
-<h4 id="top-level-const">top-level const</h4>
-<p>表示对象本身是 const .</p>
-<h4 id="low-level-const">low-level const</h4>
-<p>表示指针或引用等符合类型所指的对象是 const .</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> *<span class="type">const</span> p1 = &amp;i; <span class="comment">// top-level const</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> ci = <span class="number">42</span>; <span class="comment">// top-level const</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> *p2 = &amp;ci; <span class="comment">// low-level const</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> *constp3 = p2; <span class="comment">// right one is a top-level const, left one is a low-level const</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> &amp;r = ci; <span class="comment">// reference to const is a low-level const</span></span><br></pre></td></tr></table></figure>
-<h3 id="constexpr-and-const-expression">constexpr and const expression</h3>
-<h4 id="const-expression">const expression</h4>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/constant_expression">Constant expressions - cppreference.com</a></p>
-</blockquote>
-<p><strong>值不会改变并且在编译过程就能得到计算结果的表达式</strong>. 字面值属于常量表达式，用常量表达式初始化的 const 对象也是常量表达式.</p>
-<p>一个对象（或表达式）是不是常量表达式由其数据类型和初始值共同决定：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> max_files = <span class="number">20</span>; <span class="comment">// max_files 是常量表达式</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> limit = max_files + <span class="number">1</span>; <span class="comment">// limit 是常量表达式</span></span><br><span class="line"><span class="type">int</span> staff_size = <span class="number">27</span>; <span class="comment">// staff_size 不是常量表达式</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> sz = <span class="built_in">get_size</span>(); <span class="comment">// sz 不是常量表达式</span></span><br></pre></td></tr></table></figure>
-<h4 id="constexpr-variable">constexpr variable</h4>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/constexpr">constexpr specifier (since C++11) - cppreference.com</a></p>
-</blockquote>
-<p>实际情况下，很难分辨一个初始值到底是不是常量表达式.</p>
-<p>C++11 规定，允许将变量声明为 constexpr 类型以便由编译器来验证是否为常量表达式.</p>
-<p>一般来说，若你认定变量为一个常量表达式，那就把它声明为 constexpr 类型. constexpr 会将其所定义的对象置为 top-level const.</p>
-<blockquote>
-<p>尽管不能使用普通函数作为 constexpr 变量的初始值，但新标准允许定义一种特殊的 constexpr 函数，这种函数应该足够简单以使编译时就可以得到结果，这样就能用 constexpr 函数初始化 constexpr 变量了.</p>
-</blockquote>
-<h4 id="literal-type">literal type</h4>
-<p>由于常量表达式的值需要在编译时就得到计算结果，因此对声明 constexpr 时用到的类型必须有所限制. 这些类型一般比较简单，他们被称作”字面值类型“.</p>
-<p>算术类型、引用和指针都属于 literal type ，此外枚举类型和字面值常量类也属于 literal type. 而 IO 库和 string 类型等则不属于 literal type.</p>
-<blockquote>
-<p>枚举类型和字面值常量类之后再提</p>
-</blockquote>
-<h2 id="处理类型">处理类型</h2>
-<h3 id="type-alias">type alias</h3>
-<p>传统的定义类型别名方法是使用关键字 typedef ：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">double</span> wages; <span class="comment">// wages 是 double 的同义词</span></span><br><span class="line"><span class="keyword">typedef</span> wages base, *p; <span class="comment">// base 是 double 的同义词， p 是 double* 的同义词</span></span><br></pre></td></tr></table></figure>
-<p>其中 typedef double 是基本数据类型.</p>
-<p>C++11 规定了一种新的方法，使用<strong>别名声明（alias declaration）</strong>来定义类型的别名：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> SI = Sales_item; <span class="comment">// SI 是 Sales_item 的同义词</span></span><br></pre></td></tr></table></figure>
-<p>类型别名和类型原名等价：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wages hourly, weekly; <span class="comment">// 等价于 double hourly, weekly;</span></span><br><span class="line">SI item; <span class="comment">// 等价于 Sales_item item</span></span><br></pre></td></tr></table></figure>
-<h4 id="pointer-const-and-type-alias">pointer , const and type alias</h4>
-<blockquote>
-<p>TODO</p>
-</blockquote>
-<h3 id="auto-specifier">auto specifier</h3>
-<blockquote>
-<p>TODO</p>
-</blockquote>
-<h3 id="decltype-sepcifier">decltype sepcifier</h3>
-<blockquote>
-<p>TODO</p>
-</blockquote>
 
       
     </div>
