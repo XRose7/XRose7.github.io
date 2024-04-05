@@ -23,22 +23,22 @@
     <meta name="description" content="Maximum Difference Between Node and Ancestor - LeetCode  Thinkings 一眼递归x Codes 12345678910111213141516171819202122232425262728293031323334353637383940&#x2F;** * Definition for a binary tree node. *">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 1026 Maximum Difference Between Node and Ancestor">
-<meta property="og:url" content="http://example.com/2024/01/11/LeetCode1026/index.html">
+<meta property="og:url" content="http://example.com/2024/04/05/LeetCode1026/index.html">
 <meta property="og:site_name" content="XRose&#39;s blog">
 <meta property="og:description" content="Maximum Difference Between Node and Ancestor - LeetCode  Thinkings 一眼递归x Codes 12345678910111213141516171819202122232425262728293031323334353637383940&#x2F;** * Definition for a binary tree node. *">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-01-11T04:22:07.000Z">
-<meta property="article:modified_time" content="2024-01-11T04:56:56.605Z">
+<meta property="article:published_time" content="2024-04-05T04:22:07.000Z">
+<meta property="article:modified_time" content="2024-04-05T16:05:19.538Z">
 <meta property="article:author" content="XRose">
 <meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2024/01/11/LeetCode1026/">
+<link rel="canonical" href="http://example.com/2024/04/05/LeetCode1026/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/01/11/LeetCode1026/","path":"2024/01/11/LeetCode1026/","title":"LeetCode 1026 Maximum Difference Between Node and Ancestor"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/04/05/LeetCode1026/","path":"2024/04/05/LeetCode1026/","title":"LeetCode 1026 Maximum Difference Between Node and Ancestor"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>LeetCode 1026 Maximum Difference Between Node and Ancestor | XRose's blog</title>
@@ -140,7 +140,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#thinkings"><span class="nav-number">1.</span> <span class="nav-text">Thinkings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#codes"><span class="nav-number">2.</span> <span class="nav-text">Codes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#notes"><span class="nav-number">3.</span> <span class="nav-text">Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#better-approach"><span class="nav-number">3.1.</span> <span class="nav-text">Better approach</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#thinkings"><span class="nav-number">1.</span> <span class="nav-text">Thinkings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#codes"><span class="nav-number">2.</span> <span class="nav-text">Codes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#notes"><span class="nav-number">3.</span> <span class="nav-text">Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#better-approach"><span class="nav-number">3.1.</span> <span class="nav-text">Better approach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#another-approach"><span class="nav-number">3.2.</span> <span class="nav-text">Another approach</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">162</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -164,7 +164,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -191,7 +191,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/11/LeetCode1026/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/05/LeetCode1026/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -219,9 +219,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-01-11 12:22:07 / Modified: 12:56:56" itemprop="dateCreated datePublished" datetime="2024-01-11T12:22:07+08:00">2024-01-11</time>
+      <time title="Created: 2024-04-05 12:22:07" itemprop="dateCreated datePublished" datetime="2024-04-05T12:22:07+08:00">2024-04-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-06 00:05:19" itemprop="dateModified" datetime="2024-04-06T00:05:19+08:00">2024-04-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,6 +263,10 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxAncestorDiff</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> minVal = root-&gt;val, maxVal = root-&gt;val;</span><br><span class="line">        <span class="built_in">differ</span>(root, minVal, maxVal);</span><br><span class="line">        <span class="keyword">return</span> diff;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> diff = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">differ</span><span class="params">(TreeNode* root, <span class="type">int</span> minVal, <span class="type">int</span> maxVal)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        diff = <span class="built_in">max</span>(diff, <span class="built_in">max</span>(<span class="built_in">abs</span>(minVal - root-&gt;val), <span class="built_in">abs</span>(maxVal - root-&gt;val)));</span><br><span class="line">        minVal = <span class="built_in">min</span>(minVal, root-&gt;val);</span><br><span class="line">        maxVal = <span class="built_in">max</span>(maxVal, root-&gt;val);</span><br><span class="line">        <span class="built_in">differ</span>(root-&gt;left, minVal, maxVal);</span><br><span class="line">        <span class="built_in">differ</span>(root-&gt;right, minVal, maxVal);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>time: O(n)</p>
 <p>space: O(n)</p>
+<h3 id="another-approach">Another approach</h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-difference-between-node-and-ancestor/solutions/2232367/liang-chong-fang-fa-zi-ding-xiang-xia-zi-wj9v">两种方法：自顶向下/自底向上 - 灵茶山艾府</a></p>
+</blockquote>
 
     </div>
 
@@ -273,13 +283,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/01/10/LeetCode2385/" rel="prev" title="LeetCode 2385 Amount of Time for Binary Tree to Be Infected">
-                  <i class="fa fa-angle-left"></i> LeetCode 2385 Amount of Time for Binary Tree to Be Infected
+                <a href="/2024/04/04/LeetCode1614/" rel="prev" title="LeetCode 1614 Maximum Nesting Depth of the Parentheses">
+                  <i class="fa fa-angle-left"></i> LeetCode 1614 Maximum Nesting Depth of the Parentheses
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/01/11/LeetCode26/" rel="next" title="LeetCode 26 Remove Duplicates from Sorted Array">
-                  LeetCode 26 Remove Duplicates from Sorted Array <i class="fa fa-angle-right"></i>
+                <a href="/2024/04/05/LeetCode1544/" rel="next" title="LeetCode 1544 Make The String Great">
+                  LeetCode 1544 Make The String Great <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

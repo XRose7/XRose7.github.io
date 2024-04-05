@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">162</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -158,7 +158,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -175,6 +175,220 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/25/LeetCode2709/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/02/25/LeetCode2709/" class="post-title-link" itemprop="url">LeetCode 2709 Greatest Common Divisor Traversal</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-02-25 23:43:07" itemprop="dateCreated datePublished" datetime="2024-02-25T23:43:07+08:00">2024-02-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-26 23:43:46" itemprop="dateModified" datetime="2024-02-26T23:43:46+08:00">2024-02-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/greatest-common-divisor-traversal/description/">Greatest Common Divisor Traversal - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>题解都看不太明白:) 过两天再回顾完善一下好了</p>
+<h2 id="union-find-approach">Union find approach</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line">    <span class="type">int</span> lpf[N];  <span class="comment">// lpf[x]表示x元素的最小质因子，注意1不是质数也不是质因子</span></span><br><span class="line">    <span class="type">int</span> p[N * <span class="number">2</span>]; </span><br><span class="line">    <span class="type">int</span> cnt;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 得到每个数的最小质因子</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= x; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!lpf[i]) &#123;</span><br><span class="line">                lpf[i] = i; <span class="comment">// 质数</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt;= x / i; j++) &#123;</span><br><span class="line">                    <span class="comment">// 这里必须是还没初始化过，不然的话比如10，会先被2筛，在被5筛</span></span><br><span class="line">                    <span class="keyword">if</span> (!lpf[j * i]) &#123;</span><br><span class="line">                        lpf[j * i] = i;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x != p[x]) p[x] = <span class="built_in">get</span>(p[x]);</span><br><span class="line">        <span class="keyword">return</span> p[x];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> pa = <span class="built_in">get</span>(a), pb = <span class="built_in">get</span>(b);</span><br><span class="line">        <span class="keyword">if</span> (pa != pb) &#123;</span><br><span class="line">            p[pa] = pb; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">canTraverseAllPairs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> ma = *<span class="built_in">max_element</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">init</span>(ma + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化并查集, 并查集一共有 ：质因子最大值 + n个下标点</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n + ma + <span class="number">1</span>; i++) p[i] = i;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="comment">// 把nums[i]和它所有的质因子连边</span></span><br><span class="line">            <span class="type">int</span> t = nums[i];</span><br><span class="line">            <span class="keyword">while</span> (t &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="type">int</span> x = lpf[t];</span><br><span class="line">              	<span class="built_in">merge</span>(i, n + x);</span><br><span class="line">              </span><br><span class="line">                <span class="comment">// 一直除以最小质因子</span></span><br><span class="line">                <span class="keyword">while</span> (x == lpf[t]) t /= x;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// // 判断每个数的是否都相连, 只用判断是否每个数都和0在一个集合中即可</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">get</span>(i) != <span class="built_in">get</span>(<span class="number">0</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="another-solution">Another solution</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/greatest-common-divisor-traversal/solutions/4778225/eratosthenes-sieve-common-factor-dfs-union-find-55ms-beats-100/?envType=daily-question&amp;envId=2024-02-25">Eratosthenes' Sieve-&gt;common factor+DFS|Union Find||55ms Beats 100% - anwendeng</a></p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(<span class="string">&quot;O3&quot;</span>, <span class="string">&quot;unroll-loops&quot;</span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UnionFind</span> &#123;    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; root, size;</span><br><span class="line">    <span class="built_in">UnionFind</span>(<span class="type">int</span> n) : <span class="built_in">root</span>(n), <span class="built_in">size</span>(n) &#123;</span><br><span class="line">        size.<span class="built_in">assign</span>(n, <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">iota</span>(root.<span class="built_in">begin</span>(), root.<span class="built_in">end</span>(), <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">Find</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x == root[x]) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> root[x] = <span class="built_in">Find</span>(root[x]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">Union</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> rX = <span class="built_in">Find</span>(x), rY = <span class="built_in">Find</span>(y);</span><br><span class="line">        <span class="keyword">if</span> (rX == rY)  <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span> (size[rX] &gt; size[rY]) <span class="built_in">swap</span>(rX, rY);   </span><br><span class="line">        root[rX] = rY;</span><br><span class="line">        size[rY] += size[rX];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">connected</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Find</span>(x) == <span class="built_in">Find</span>(y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reset</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;<span class="comment">//Useful for removal</span></span><br><span class="line">        root[x]=x;</span><br><span class="line">        size[x]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; prime;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; num_state;</span><br><span class="line"></span><br><span class="line">    bitset&lt;100001&gt; sieved=<span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">Sieve</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;<span class="comment">//TC: O(n log log n)</span></span><br><span class="line">        sieved[<span class="number">0</span>]=sieved[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span>&amp;&amp; n_sqrt=<span class="built_in">int</span>(<span class="built_in">sqrt</span>(n));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>; i&lt;=n_sqrt; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (!sieved[i])&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j=i*i ; j&lt;=n; j+=i)</span><br><span class="line">                    sieved[j]=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        prime.<span class="built_in">reserve</span>((<span class="type">int</span>)<span class="built_in">log</span>(n));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>; i&lt;=n; i++)</span><br><span class="line">            <span class="keyword">if</span> (!sieved[i]) prime.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Different from the one for DFS</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">build_commonFactor_path</span><span class="params">(<span class="keyword">auto</span>&amp; nums, <span class="type">int</span> M, UnionFind&amp; graph)</span> </span>&#123;</span><br><span class="line">        num_state.<span class="built_in">assign</span>(M+<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> x : nums)</span><br><span class="line">            num_state[x] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> p : prime) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = p*<span class="number">2</span>; i &lt;= M; i += p) &#123;</span><br><span class="line">                <span class="keyword">if</span> (num_state[i]==<span class="number">1</span>) &#123;</span><br><span class="line">                    graph.<span class="built_in">Union</span>(i, p);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">canTraverseAllPairs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.<span class="built_in">size</span>()==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> M=*<span class="built_in">max_element</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> sqrtM=<span class="built_in">sqrt</span>(M);</span><br><span class="line">        <span class="built_in">Sieve</span>(M);</span><br><span class="line">        bitset&lt;100001&gt; S=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> x : nums)&#123;</span><br><span class="line">            <span class="keyword">if</span> (x==<span class="number">1</span> ) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            S[x]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        nums.<span class="built_in">clear</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">2</span>; i&lt;=M; i++)</span><br><span class="line">            <span class="keyword">if</span>(S[i]) nums.<span class="built_in">push_back</span>(i);</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>(), sz=<span class="number">0</span>;</span><br><span class="line">        <span class="function">UnionFind <span class="title">graph</span><span class="params">(M+<span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="built_in">build_commonFactor_path</span>(nums, M, graph);</span><br><span class="line">        <span class="type">int</span> x0=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>; i&lt;n; i++)</span><br><span class="line">            <span class="keyword">if</span> (!graph.<span class="built_in">connected</span>(x0, nums[i])) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="eratosthenes-sieve">Eratosthenes' Sieve</h2>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/YZcheng_plus/article/details/129467828">埃氏筛法与欧拉筛（超级详解）-CSDN博客</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/24/LeetCode2092/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/02/24/LeetCode2092/" class="post-title-link" itemprop="url">LeetCode 2092 Find All People With Secret</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-02-24 23:43:07" itemprop="dateCreated datePublished" datetime="2024-02-24T23:43:07+08:00">2024-02-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-25 21:17:31" itemprop="dateModified" datetime="2024-02-25T21:17:31+08:00">2024-02-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-all-people-with-secret/description/">Find All People With Secret - LeetCode</a></p>
+</blockquote>
+<h2 id="dfs-approach">DFS approach</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-all-people-with-secret/solutions/1126268/an-zhao-xiang-tong-shi-jian-fen-zu-jian-2y4yx">按照相同时间分组 + 建图 DFS - 灵茶山艾府</a></p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findAllPeople</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; meetings, <span class="type">int</span> firstPerson)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// sort by time</span></span><br><span class="line">        <span class="built_in">sort</span>(meetings.<span class="built_in">begin</span>(), meetings.<span class="built_in">end</span>(), [&amp;](<span class="type">const</span> <span class="keyword">auto</span>&amp; a, <span class="type">const</span> <span class="keyword">auto</span>&amp; b) &#123;</span><br><span class="line">            <span class="keyword">return</span> a[<span class="number">2</span>] &lt; b[<span class="number">2</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; infected&#123;<span class="number">0</span>, firstPerson&#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// iterate by time</span></span><br><span class="line">        <span class="type">int</span> m = meetings.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; m) &#123;</span><br><span class="line">            <span class="comment">// construct the graph</span></span><br><span class="line">            unordered_map&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;&gt; graph;</span><br><span class="line">            <span class="type">int</span> time = meetings[i][<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">while</span> (i &lt; m &amp;&amp; meetings[i][<span class="number">2</span>] == time) &#123;</span><br><span class="line">                <span class="type">int</span> x = meetings[i][<span class="number">0</span>];</span><br><span class="line">                <span class="type">int</span> y = meetings[i][<span class="number">1</span>];</span><br><span class="line">                graph[x].<span class="built_in">push_back</span>(y);</span><br><span class="line">                graph[y].<span class="built_in">push_back</span>(x);</span><br><span class="line">                ++i;</span><br><span class="line">            &#125;</span><br><span class="line">            function&lt;<span class="type">void</span>(<span class="type">int</span>)&gt; dfs = [&amp;](<span class="type">int</span> v) &#123;</span><br><span class="line">                infected.<span class="built_in">insert</span>(v);</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; w : graph[v]) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!infected.<span class="built_in">count</span>(w)) &#123;</span><br><span class="line">                        <span class="built_in">dfs</span>(w);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; [v, _] : graph) &#123;</span><br><span class="line">                <span class="keyword">if</span> (infected.<span class="built_in">count</span>(v)) &#123;</span><br><span class="line">                    <span class="built_in">dfs</span>(v);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; v : infected) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(v);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(mlogm)</p>
+<p>Space: O(m + n)</p>
+<blockquote>
+<p>当然也可以用 BFS 解决.</p>
+</blockquote>
+<h2 id="union-find-approach">Union find approach</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-all-people-with-secret/solutions/1126597/bing-cha-ji-pai-xu-javashuang-bai-xiang-5gbrx">并查集+排序，Java双百详细题解 - 无人生还</a></p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	vector&lt;<span class="type">int</span>&gt; p;</span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (p[x] != x) &#123;</span><br><span class="line">			p[x] = <span class="built_in">find</span>(p[x]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p[x];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findAllPeople</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; meetings, <span class="type">int</span> firstPerson)</span> </span>&#123;</span><br><span class="line">		p.<span class="built_in">resize</span>(n);</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">			p[i] = i;</span><br><span class="line">		&#125;</span><br><span class="line">		p[firstPerson] = <span class="number">0</span>;</span><br><span class="line">		map&lt;<span class="type">int</span>, vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt;&gt; meeting;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; m : meetings) &#123;</span><br><span class="line">		    meeting[m[<span class="number">2</span>]].<span class="built_in">push_back</span>(&#123;m[<span class="number">0</span>], m[<span class="number">1</span>]&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; [t, m] : meeting) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; [p1, p2] : m) &#123;</span><br><span class="line">				<span class="keyword">if</span> (p[<span class="built_in">find</span>(p1)] == <span class="number">0</span> || p[<span class="built_in">find</span>(p2)] == <span class="number">0</span>) &#123;</span><br><span class="line">					p[<span class="built_in">find</span>(p1)] = <span class="number">0</span>;</span><br><span class="line">					p[<span class="built_in">find</span>(p2)] = <span class="number">0</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				p[<span class="built_in">find</span>(p2)] = p[<span class="built_in">find</span>(p1)]; <span class="comment">// merge sets</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; [p1, p2] : m) &#123;</span><br><span class="line">				<span class="keyword">if</span> (p[<span class="built_in">find</span>(p1)] == <span class="number">0</span> || p[<span class="built_in">find</span>(p2)] == <span class="number">0</span>) &#123;</span><br><span class="line">					p[<span class="built_in">find</span>(p1)] = <span class="number">0</span>;</span><br><span class="line">					p[<span class="built_in">find</span>(p2)] = <span class="number">0</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> &#123;</span><br><span class="line">					<span class="comment">// divide</span></span><br><span class="line">					p[p1] = p1;</span><br><span class="line">					p[p2] = p2;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!<span class="built_in">find</span>(i)) &#123;</span><br><span class="line">				res.<span class="built_in">push_back</span>(i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(mlogm)</p>
+<p>Space: O(m + n)</p>
+<h4 id="faster-union-find-approach">Faster union find approach</h4>
+<blockquote>
+<p><code>for</code> 比 <code>foreach</code> 快一丢丢，且直接在 <code>meetings</code> 上排序比另维护一个 <code>time, meeting</code> 的 map 更快更省空间.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; parents, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (parents[k] == k) <span class="keyword">return</span> k;</span><br><span class="line">        <span class="keyword">return</span> parents[k] = <span class="built_in">find</span>(parents, parents[k]);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findAllPeople</span></span></span><br><span class="line"><span class="function">            <span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; meetings, <span class="type">int</span> firstPerson)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = meetings.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">parents</span><span class="params">(n)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="keyword">if</span> (i != firstPerson) parents[i] = i;</span><br><span class="line">        <span class="keyword">auto</span> comp = [](<span class="keyword">auto</span>&amp; x, <span class="keyword">auto</span>&amp; y) &#123; <span class="keyword">return</span> x[<span class="number">2</span>] &lt; y[<span class="number">2</span>]; &#125;;</span><br><span class="line">        <span class="built_in">sort</span>(meetings.<span class="built_in">begin</span>(), meetings.<span class="built_in">end</span>(), comp);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; m; i = j + <span class="number">1</span>, j = j + <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">while</span> (j + <span class="number">1</span> &lt; m &amp;&amp; meetings[j + <span class="number">1</span>][<span class="number">2</span>] == meetings[i][<span class="number">2</span>]) j++;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = i; k &lt;= j; k++) &#123;</span><br><span class="line">                <span class="type">int</span> x = meetings[k][<span class="number">0</span>];</span><br><span class="line">                <span class="type">int</span> y = meetings[k][<span class="number">1</span>];</span><br><span class="line">                <span class="type">int</span> px = parents[<span class="built_in">find</span>(parents, x)];</span><br><span class="line">                <span class="type">int</span> py = parents[<span class="built_in">find</span>(parents, y)];</span><br><span class="line">                <span class="keyword">if</span> (px == <span class="number">0</span> || py == <span class="number">0</span>) &#123;</span><br><span class="line">                    parents[<span class="built_in">find</span>(parents, x)] = <span class="number">0</span>;</span><br><span class="line">                    parents[<span class="built_in">find</span>(parents, y)] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                parents[<span class="built_in">find</span>(parents, x)] = parents[<span class="built_in">find</span>(parents, y)];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = i; k &lt;= j; k++) &#123;</span><br><span class="line">                <span class="type">int</span> x = meetings[k][<span class="number">0</span>];</span><br><span class="line">                <span class="type">int</span> y = meetings[k][<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span> (parents[<span class="built_in">find</span>(parents, x)] != <span class="number">0</span>) parents[x] = x;</span><br><span class="line">                <span class="keyword">if</span> (parents[<span class="built_in">find</span>(parents, y)] != <span class="number">0</span>) parents[y] = y;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="keyword">if</span> (parents[<span class="built_in">find</span>(parents, i)] == <span class="number">0</span>) ans.<span class="built_in">push_back</span>(i);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(mlogm)</p>
+<p>Space: O(m + n)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1015,205 +1229,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/19/LeetCode231/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/19/LeetCode231/" class="post-title-link" itemprop="url">LeetCode 231 Power of Two</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-02-19 23:43:07 / Modified: 23:26:12" itemprop="dateCreated datePublished" datetime="2024-02-19T23:43:07+08:00">2024-02-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/power-of-two/description/">Power of Two - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>直接就是一个递归x</p>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPowerOfTwo</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (n == <span class="number">1</span> || n % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; <span class="built_in">isPowerOfTwo</span>(n / <span class="number">2</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(logn)</p>
-<p>Space: O(logn)</p>
-<h2 id="notes">Notes</h2>
-<h3 id="bit-manipulation-approach">Bit manipulation approach</h3>
-<p>事实上我们可以证明 <span class="math display">\[
-2^n \; \text{BAND} \; (2^n - 1) = 0
-\]</span></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/power-of-two/solutions/1638707/python-c-java-detailly-explain-why-n-n-1-works-1-line-100-faster-easy">Detailly Explain Why n &amp; n - 1 Works? - linfq</a></p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPowerOfTwo</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> n &gt; <span class="number">0</span> &amp;&amp; !(n &amp; n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(1)</p>
-<p>Space: O(1)</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/18/LeetCode2402/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/18/LeetCode2402/" class="post-title-link" itemprop="url">LeetCode 2402 Meeting Rooms III</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-02-18 23:43:07" itemprop="dateCreated datePublished" datetime="2024-02-18T23:43:07+08:00">2024-02-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-03-04 15:53:52" itemprop="dateModified" datetime="2024-03-04T15:53:52+08:00">2024-03-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/meeting-rooms-iii/description/">Meeting Rooms III - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>思路混乱x直接看题解吧</p>
-<blockquote>
-<p>用两个小顶堆模拟：</p>
-<p><span class="math inline">\(\textit{idle}\)</span> 维护在 <span class="math inline">\(\textit{start}_i\)</span> 时刻空闲的会议室的编号； <span class="math inline">\(\textit{using}\)</span> 维护在 <span class="math inline">\(\textit{start}_i\)</span> 时刻使用中的会议室的结束时间和编号。 这两类会议室是互补关系，伴随着会议的开始和结束，会议室在这两类中来回倒。</p>
-<p>对 <span class="math inline">\(\textit{meetings}\)</span> 按照开始时间排序，然后遍历 <span class="math inline">\(\textit{meetings}\)</span> ，按照题目要求模拟即可，具体模拟方式见代码。</p>
-<p>作者：灵茶山艾府 链接：https://leetcode.cn/problems/meeting-rooms-iii/solutions/1799420/shuang-dui-mo-ni-pythonjavacgo-by-endles-ctwc/ 来源：力扣（LeetCode） 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-</blockquote>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mostBooked</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; meetings)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> count[n];</span><br><span class="line">        <span class="built_in">memset</span>(count, <span class="number">0</span>, <span class="built_in">sizeof</span>(count));</span><br><span class="line">        priority_queue&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;, greater&lt;&gt;&gt; free; <span class="comment">// the element is the room&#x27;s index</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="comment">// initialize the free room&#x27;s heap</span></span><br><span class="line">            free.<span class="built_in">push</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        priority_queue&lt;pair&lt;<span class="type">long</span>, <span class="type">int</span>&gt;, vector&lt;pair&lt;<span class="type">long</span>, <span class="type">int</span>&gt;&gt;, greater&lt;&gt;&gt; occupied; <span class="comment">// the element is the paif of room&#x27;s meeting end time and index</span></span><br><span class="line">        <span class="built_in">sort</span>(meetings.<span class="built_in">begin</span>(), meetings.<span class="built_in">end</span>(), [](<span class="keyword">auto</span> &amp;a, <span class="keyword">auto</span> &amp;b) &#123;</span><br><span class="line">            <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>];</span><br><span class="line">        &#125;); <span class="comment">// sort by start time</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp; m : meetings) &#123;</span><br><span class="line">            <span class="type">long</span> st = m[<span class="number">0</span>]; <span class="comment">// m&#x27;s start time</span></span><br><span class="line">            <span class="type">long</span> et = m[<span class="number">1</span>]; <span class="comment">// m&#x27;s end time</span></span><br><span class="line">            <span class="type">long</span> id; <span class="comment">// the index of the room to be occupied</span></span><br><span class="line">            <span class="keyword">while</span> (!occupied.<span class="built_in">empty</span>() &amp;&amp; occupied.<span class="built_in">top</span>().first &lt;= st) &#123;</span><br><span class="line">                <span class="comment">// the occupied room&#x27;s meeting end time &lt;= m&#x27;s start time</span></span><br><span class="line">                free.<span class="built_in">push</span>(occupied.<span class="built_in">top</span>().second); <span class="comment">// push occupied.top()&#x27;s index to free</span></span><br><span class="line">                occupied.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (free.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                <span class="comment">// no available rooms</span></span><br><span class="line">                <span class="keyword">auto</span>[e, i] = occupied.<span class="built_in">top</span>();</span><br><span class="line">                occupied.<span class="built_in">pop</span>();</span><br><span class="line">                et += e - st; <span class="comment">// end time = end time + (new start time - start time)</span></span><br><span class="line">                id = i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                id = free.<span class="built_in">top</span>();</span><br><span class="line">                free.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            ++count[id];</span><br><span class="line">            occupied.<span class="built_in">emplace</span>(et, id);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>; <span class="comment">// the number of the room that held the most meetings</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (count[i] &gt; count[res]) &#123;</span><br><span class="line">                res = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n + m * (logn + logm))</p>
-<p>Space: O(n)</p>
-<h2 id="notes">Notes</h2>
-<p>无.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1269,7 +1284,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
