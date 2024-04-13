@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-count">179</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -175,6 +175,192 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/24/LeetCode287/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/03/24/LeetCode287/" class="post-title-link" itemprop="url">LeetCode 287 Find the Duplicate Number</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-03-24 23:43:07 / Modified: 23:03:18" itemprop="dateCreated datePublished" datetime="2024-03-24T23:43:07+08:00">2024-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-duplicate-number/">Find the Duplicate Number - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-duplicate-number/solutions/58841/287xun-zhao-zhong-fu-shu-by-kirsche">287.寻找重复数 - Kirsche</a></p>
+</blockquote>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> slow = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> fast = <span class="number">0</span>;</span><br><span class="line">        slow = nums[slow];</span><br><span class="line">        fast = nums[nums[fast]];</span><br><span class="line">        <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">            slow = nums[slow];</span><br><span class="line">            fast = nums[nums[fast]];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> p1 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> p2 = slow;</span><br><span class="line">        <span class="keyword">while</span> (p1 != p2) &#123;</span><br><span class="line">            p1 = nums[p1];</span><br><span class="line">            p2 = nums[p2];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(1)</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zwwhsxq/article/details/125707465">判断链表是否有环 及 寻找环的入口 - zwwhsxq</a></p>
+</blockquote>
+<h2 id="notes">Notes</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-duplicate-number/solutions/261119/xun-zhao-zhong-fu-shu-by-leetcode-solution">寻找重复数 - 力扣官方题解</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/24/LeetCode322/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/03/24/LeetCode322/" class="post-title-link" itemprop="url">LeetCode 322 Coin Change</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-03-24 23:43:07 / Modified: 22:57:54" itemprop="dateCreated datePublished" datetime="2024-03-24T23:43:07+08:00">2024-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/coin-change/">Coin Change - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/coin-change/solutions/6568/dong-tai-gui-hua-tao-lu-xiang-jie-by-wei-lai-bu-ke">动态规划套路详解 - labuladong</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/coin-change/solutions/2119065/jiao-ni-yi-bu-bu-si-kao-dong-tai-gui-hua-21m5">【视频】教你一步步思考动态规划！附题单！ - 灵茶山艾府</a></p>
+</blockquote>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">coinChange</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;coins, <span class="type">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> f[amount + <span class="number">1</span>];</span><br><span class="line">        <span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="built_in">sizeof</span>(f));</span><br><span class="line">        f[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> x : coins)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> c = x; c &lt;= amount; ++c)</span><br><span class="line">                f[c] = <span class="built_in">min</span>(f[c], f[c - x] + <span class="number">1</span>);</span><br><span class="line">        <span class="type">int</span> ans = f[amount];</span><br><span class="line">        <span class="keyword">return</span> ans &lt; <span class="number">0x3f3f3f3f</span> ? ans : <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n*amount)</p>
+<p>Space: O(amount)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -889,191 +1075,6 @@
 <h3 id="max-heap-approach">Max heap approach</h3>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/task-scheduler/editorial/">task-scheduler - Editorial</a></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/18/LeetCode303/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/18/LeetCode303/" class="post-title-link" itemprop="url">LeetCode 303 Range Sum Query - Immutable</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-03-18 23:43:07 / Modified: 15:43:39" itemprop="dateCreated datePublished" datetime="2024-03-18T23:43:07+08:00">2024-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/range-sum-query-immutable/">Range Sum Query - Immutable - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>这种提供查询接口的类一般都要做个备忘录，用空间换时间. 这题记录各元素的前缀和，查询时返回两元素的前缀和之差即可.</p>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NumArray</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; prefixSum;</span><br><span class="line">    <span class="built_in">NumArray</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        prefixSum.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            prefixSum.<span class="built_in">push_back</span>(prefixSum[i] + nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">sumRange</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> prefixSum[right + <span class="number">1</span>] - prefixSum[left];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your NumArray object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * NumArray* obj = new NumArray(nums);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;sumRange(left,right);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-<p>Time:</p>
-<ul>
-<li>NumArray(): O(n)</li>
-<li>sumRange(): O(1)</li>
-</ul>
-<p>Space: O(n)</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/18/LeetCode452/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/18/LeetCode452/" class="post-title-link" itemprop="url">LeetCode 452 Minimum Number of Arrows to Burst Balloons</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-03-18 23:43:07 / Modified: 15:39:30" itemprop="dateCreated datePublished" datetime="2024-03-18T23:43:07+08:00">2024-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/">Minimum Number of Arrows to Burst Balloons - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-number-of-arrows-to-burst-balloons/solutions/494515/yong-zui-shao-shu-liang-de-jian-yin-bao-qi-qiu-1-2">用最少数量的箭引爆气球 - 力扣官方题解</a></p>
-</blockquote>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMinArrowShots</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; points)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (points.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(points.<span class="built_in">begin</span>(), points.<span class="built_in">end</span>(), [](<span class="type">const</span> vector&lt;<span class="type">int</span>&gt;&amp; u, <span class="type">const</span> vector&lt;<span class="type">int</span>&gt;&amp; v) &#123;</span><br><span class="line">            <span class="keyword">return</span> u[<span class="number">1</span>] &lt; v[<span class="number">1</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="type">int</span> pos = points[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> vector&lt;<span class="type">int</span>&gt;&amp; balloon: points) &#123;</span><br><span class="line">            <span class="keyword">if</span> (balloon[<span class="number">0</span>] &gt; pos) &#123;</span><br><span class="line">                pos = balloon[<span class="number">1</span>];</span><br><span class="line">                ++ans;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(nlogn)</p>
-<p>Space: O(logn)</p>
-<h2 id="notes">Notes</h2>
-<h3 id="longest-increasing-subsequence">Longest increasing subsequence</h3>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-number-of-arrows-to-burst-balloons/solutions/297889/chuan-shang-yi-fu-wo-jiu-bu-ren-shi-ni-liao-lai-3">穿上衣服我就不认识你了？来聊聊最长上升子序列 - lucifer</a></p>
 </blockquote>
 
       
