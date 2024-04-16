@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">183</span>
+          <span class="site-state-item-count">185</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -175,6 +175,199 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/14/LeetCode55/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/14/LeetCode55/" class="post-title-link" itemprop="url">LeetCode 55 Jump Game</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-01-14 20:35:07" itemprop="dateCreated datePublished" datetime="2024-01-14T20:35:07+08:00">2024-01-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-01-15 13:55:17" itemprop="dateModified" datetime="2024-01-15T13:55:17+08:00">2024-01-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/top-interview-150/" itemprop="url" rel="index"><span itemprop="name">top-interview-150</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/jump-game/description/">Jump Game - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>一开始想的是抽象成图 dfs ，实现起来超时了。应该用贪心或者 dp .</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">canJump</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> len = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> reach = <span class="number">0</span>; i &lt; len &amp;&amp; i &lt;= reach; ++i) &#123;</span><br><span class="line">            reach = <span class="built_in">max</span>(i + nums[i], reach);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i == len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(1)</p>
+<h2 id="notes">Notes</h2>
+<h3 id="another-approach">Another approach</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">canJump</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> s = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(nums.<span class="built_in">front</span>() &gt;= s<span class="number">-1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums.<span class="built_in">front</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">int</span> range = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s<span class="number">-1</span>; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i+nums.<span class="built_in">at</span>(i) &gt; range) range = i+nums.<span class="built_in">at</span>(i);</span><br><span class="line">            <span class="keyword">if</span>(range &gt;= s<span class="number">-1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(range == i) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(1)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/13/LeetCode122/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/13/LeetCode122/" class="post-title-link" itemprop="url">LeetCode 122 Best Time to Buy and Sell Stock II</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-01-13 16:11:07 / Modified: 16:44:46" itemprop="dateCreated datePublished" datetime="2024-01-13T16:11:07+08:00">2024-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/top-interview-150/" itemprop="url" rel="index"><span itemprop="name">top-interview-150</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/">Best Time to Buy and Sell Stock II - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>没什么思路，学的题解.</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> profit = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> len = prices.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; ; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(prices[i] &gt; prices[i<span class="number">-1</span>]) &#123;</span><br><span class="line">                profit += prices[i] - prices[i<span class="number">-1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> profit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="notes">Notes</h2>
+<p>DP</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1890,218 +2083,6 @@ T(n) = 2T(\frac{n}{2}) + 2n
 <p>Space: O(1)</p>
 <h2 id="notes">Notes</h2>
 <p>无.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/10/LeetCode2385/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/10/LeetCode2385/" class="post-title-link" itemprop="url">LeetCode 2385 Amount of Time for Binary Tree to Be Infected</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-01-10 11:22:07 / Modified: 11:39:45" itemprop="dateCreated datePublished" datetime="2024-01-10T11:22:07+08:00">2024-01-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/description/">Amount of Time for Binary Tree to Be Infected - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>首先根据参数 <code>start</code> 找到起始节点，可使用任意遍历方法；其次使用非递归的后后序遍历获得各节点的父节点；接着从起始节点开始，使用类层次遍历进行传染并获取层数，得到的层数即传染整棵树所需的时间.</p>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">amountOfTime</span><span class="params">(TreeNode* root, <span class="type">int</span> start)</span> </span>&#123;</span><br><span class="line">        TreeNode* startNode = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="built_in">findStartNode</span>(root, start, startNode);</span><br><span class="line">        map&lt;TreeNode*, TreeNode*&gt; parentOfNodes = <span class="built_in">getParentOfNodes</span>(root);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">infection</span>(startNode, parentOfNodes);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">findStartNode</span><span class="params">(TreeNode* root, <span class="type">int</span> start, TreeNode*&amp; startNode)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root-&gt;val == start) &#123;</span><br><span class="line">                startNode = root;</span><br><span class="line">                <span class="keyword">return</span> ;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">findStartNode</span>(root-&gt;left, start, startNode);</span><br><span class="line">            <span class="built_in">findStartNode</span>(root-&gt;right, start, startNode);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">infection</span><span class="params">(TreeNode* root, map&lt;TreeNode*, TreeNode*&gt; parentOfNodes)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> time = <span class="number">-1</span>;</span><br><span class="line">        map&lt;TreeNode*, <span class="type">bool</span>&gt;visited;</span><br><span class="line">        deque&lt;TreeNode*&gt; q;</span><br><span class="line">        TreeNode* p = root;</span><br><span class="line">        q.<span class="built_in">push_back</span>(p);</span><br><span class="line">        TreeNode* last = p;</span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            p = q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop_front</span>();</span><br><span class="line">            visited[p] = <span class="literal">true</span>;</span><br><span class="line">            TreeNode* parent = parentOfNodes.<span class="built_in">at</span>(p);</span><br><span class="line">            <span class="keyword">if</span> (parent &amp;&amp; visited[parent] == <span class="literal">false</span>) &#123; <span class="comment">// if key &#x27;parent&#x27; is not in the map, a new pair (parent, false) will be created in the map</span></span><br><span class="line">                q.<span class="built_in">push_back</span>(parent);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p-&gt;left &amp;&amp; visited[p-&gt;left] == <span class="literal">false</span>) &#123;</span><br><span class="line">                q.<span class="built_in">push_back</span>(p-&gt;left);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p-&gt;right &amp;&amp; visited[p-&gt;right] == <span class="literal">false</span>) &#123;</span><br><span class="line">                q.<span class="built_in">push_back</span>(p-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p == last) &#123;</span><br><span class="line">                last = q.<span class="built_in">back</span>();</span><br><span class="line">                ++time;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> time;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">map&lt;TreeNode*, TreeNode*&gt; <span class="title">getParentOfNodes</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        map&lt;TreeNode*, TreeNode*&gt; parentOfNodes;</span><br><span class="line">        stack&lt;TreeNode*&gt; s;</span><br><span class="line">        TreeNode* p = root;</span><br><span class="line">        TreeNode* r = <span class="literal">nullptr</span>;</span><br><span class="line">        TreeNode* parent = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span> (p || !s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p) &#123;</span><br><span class="line">                s.<span class="built_in">push</span>(p);</span><br><span class="line">                p = p-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                p = s.<span class="built_in">top</span>();</span><br><span class="line">                <span class="keyword">if</span> (p-&gt;right &amp;&amp; p-&gt;right != r) &#123;</span><br><span class="line">                    p = p-&gt;right;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    p = s.<span class="built_in">top</span>();</span><br><span class="line">                    s.<span class="built_in">pop</span>();</span><br><span class="line">                    parent = s.<span class="built_in">empty</span>() ? <span class="literal">nullptr</span> : s.<span class="built_in">top</span>();</span><br><span class="line">                    parentOfNodes[p] = parent;</span><br><span class="line">                    r = p;</span><br><span class="line">                    p = <span class="literal">nullptr</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> parentOfNodes;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="complexity">Complexity</h3>
-<p><strong>Time</strong>: O(n)</p>
-<p><strong>Space</strong>: O(n)</p>
-<h2 id="notes">Notes</h2>
-<h3 id="deque"><code>deque</code></h3>
-<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/deque">std::deque - cppreference.com</a></p>
-<h3 id="map"><code>map</code></h3>
-<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/map">std::map - cppreference.com</a></p>
-<h3 id="another-approach">Another approach</h3>
-<ol type="1">
-<li><strong>Graph Construction:</strong>
-<ul>
-<li>The solution creates a graph representation of the tree using a default dictionary <code>g</code> of lists in the <code>dfs</code> (Depth-First Search) function.</li>
-</ul></li>
-<li><strong>Initialization:</strong>
-<ul>
-<li>Initialize an empty set <code>vis</code> to keep track of visited nodes (infected nodes) and a queue <code>q</code> to maintain the BFS's order of node processing, with the start node as the initial node to be processed.</li>
-</ul></li>
-<li><strong>BFS Algorithm:</strong>
-<ul>
-<li>The solution sets up a while loop that continues until the queue <code>q</code> is empty, signifying that there are no more nodes to be infected.<br />
-</li>
-</ul></li>
-<li><strong>Return Value:</strong>
-<ul>
-<li>By the end of the BFS loop, <code>ans</code> holds the number of minutes it took to infect the entire tree since each loop iteration represents one minute of infection time passing.</li>
-<li>The return value <code>ans</code> represents the required number of minutes for the infection to spread through the entire tree, as determined by our BFS algorithm.</li>
-</ul></li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    unordered_map&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;&gt; graph;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">amountOfTime</span><span class="params">(TreeNode* root, <span class="type">int</span> start)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">constructGraph</span>(root);</span><br><span class="line"></span><br><span class="line">        queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">        q.<span class="built_in">push</span>(start);</span><br><span class="line"></span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; visited;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> minutesPassed = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            ++minutesPassed;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> levelSize = q.<span class="built_in">size</span>(); levelSize &gt; <span class="number">0</span>; --levelSize) &#123;</span><br><span class="line">                <span class="type">int</span> currentNode = q.<span class="built_in">front</span>();</span><br><span class="line">                q.<span class="built_in">pop</span>();</span><br><span class="line">                visited.<span class="built_in">insert</span>(currentNode);</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> adjacentNode : graph[currentNode]) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!visited.<span class="built_in">count</span>(adjacentNode)) &#123;</span><br><span class="line">                        q.<span class="built_in">push</span>(adjacentNode);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> minutesPassed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">constructGraph</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root-&gt;left) &#123;</span><br><span class="line">            graph[root-&gt;val].<span class="built_in">push_back</span>(root-&gt;left-&gt;val);</span><br><span class="line">            graph[root-&gt;left-&gt;val].<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root-&gt;right) &#123;</span><br><span class="line">            graph[root-&gt;val].<span class="built_in">push_back</span>(root-&gt;right-&gt;val);</span><br><span class="line">            graph[root-&gt;right-&gt;val].<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">constructGraph</span>(root-&gt;left);</span><br><span class="line">        <span class="built_in">constructGraph</span>(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>Time</strong>: O(n)</p>
-<p><strong>Space</strong>: O(n)</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/LeetCode27/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/09/LeetCode27/" class="post-title-link" itemprop="url">LeetCode 27 Remove Element</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-01-09 23:28:07 / Modified: 23:43:58" itemprop="dateCreated datePublished" datetime="2024-01-09T23:28:07+08:00">2024-01-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/top-interview-150/" itemprop="url" rel="index"><span itemprop="name">top-interview-150</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-element/description/">Remove Element - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>简单的 <code>std::vector::iterator</code> 及 <code>std::vector::erase</code> 的应用.</p>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">removeElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt;::iterator iter1 = nums.<span class="built_in">begin</span>();</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt;::iterator iter2 = nums.<span class="built_in">end</span>();</span><br><span class="line">        <span class="keyword">while</span> (iter1 != iter2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (*iter1 != val) &#123;</span><br><span class="line">                ++iter1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                nums.<span class="built_in">erase</span>(iter1);</span><br><span class="line">                iter1 = nums.<span class="built_in">begin</span>();</span><br><span class="line">                iter2 = nums.<span class="built_in">end</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="notes">Notes</h2>
-<p>iterator 用法与 pointer 类似.</p>
-<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/vector">std::vector - cppreference.com</a></p>
-<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/vector/erase">std::vector::erase - cppreference.com</a></p>
-<h3 id="another-approach">Another Approach</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">removeElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != val)&#123;</span><br><span class="line">                nums[index] = nums[i];</span><br><span class="line">                index++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>

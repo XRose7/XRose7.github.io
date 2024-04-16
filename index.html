@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">183</span>
+          <span class="site-state-item-count">185</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -175,6 +175,194 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/17/LeetCode623/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/17/LeetCode623/" class="post-title-link" itemprop="url">LeetCode 623 Add One Row to Tree</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-04-17 23:43:07" itemprop="dateCreated datePublished" datetime="2024-04-17T23:43:07+08:00">2024-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-16 23:27:23" itemprop="dateModified" datetime="2024-04-16T23:27:23+08:00">2024-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/add-one-row-to-tree/">Add One Row to Tree - LeetCode</a></p>
+</blockquote>
+<h2 id="notes">Notes</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/add-one-row-to-tree/solutions/1720824/zai-er-cha-shu-zhong-zeng-jia-yi-xing-by-xcaf">力扣官方题解</a></p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">addOneRow</span><span class="params">(TreeNode* root, <span class="type">int</span> val, <span class="type">int</span> depth)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (depth == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">TreeNode</span>(val, root, <span class="literal">nullptr</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (depth == <span class="number">2</span>) &#123;</span><br><span class="line">            root-&gt;left = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(val, root-&gt;left, <span class="literal">nullptr</span>);</span><br><span class="line">            root-&gt;right = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(val, <span class="literal">nullptr</span>, root-&gt;right);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            root-&gt;left = <span class="built_in">addOneRow</span>(root-&gt;left, val, depth - <span class="number">1</span>);</span><br><span class="line">            root-&gt;right = <span class="built_in">addOneRow</span>(root-&gt;right, val, depth - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(n)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/17/LeetCode924/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/17/LeetCode924/" class="post-title-link" itemprop="url">LeetCode 924 Minimize Malware Spread</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-04-17 23:43:07" itemprop="dateCreated datePublished" datetime="2024-04-17T23:43:07+08:00">2024-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-16 23:30:04" itemprop="dateModified" datetime="2024-04-16T23:30:04+08:00">2024-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimize-malware-spread/">Minimize Malware Spread - LeetCode</a></p>
+</blockquote>
+<h1 id="notes">Notes</h1>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimize-malware-spread/solutions/2741790/zhi-bao-han-yi-ge-bei-gan-ran-jie-dian-d-ym39">只包含一个被感染节点的最大连通块 - 灵茶山艾府</a></p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minMalwareSpread</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph, vector&lt;<span class="type">int</span>&gt;&amp; initial)</span> </span>&#123;</span><br><span class="line">        <span class="function">set&lt;<span class="type">int</span>&gt; <span class="title">st</span><span class="params">(initial.begin(), initial.end())</span></span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vis</span><span class="params">(graph.size())</span></span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">-1</span>, max_size = <span class="number">0</span>, node_id, size;</span><br><span class="line">        function&lt;<span class="type">void</span>(<span class="type">int</span>)&gt; dfs = [&amp;](<span class="type">int</span> x) &#123;</span><br><span class="line">            vis[x] = <span class="literal">true</span>;</span><br><span class="line">            size++;</span><br><span class="line">            <span class="comment">// 按照状态机更新 node_id</span></span><br><span class="line">            <span class="keyword">if</span> (node_id != <span class="number">-2</span> &amp;&amp; st.<span class="built_in">contains</span>(x)) &#123;</span><br><span class="line">                node_id = node_id == <span class="number">-1</span> ? x : <span class="number">-2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> y = <span class="number">0</span>; y &lt; graph[x].<span class="built_in">size</span>(); y++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (graph[x][y] &amp;&amp; !vis[y]) &#123;</span><br><span class="line">                    <span class="built_in">dfs</span>(y);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> x : initial) &#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[x]) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            node_id = <span class="number">-1</span>;</span><br><span class="line">            size = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">dfs</span>(x);</span><br><span class="line">            <span class="keyword">if</span> (node_id &gt;= <span class="number">0</span> &amp;&amp; (size &gt; max_size || size == max_size &amp;&amp; node_id &lt; ans)) &#123;</span><br><span class="line">                ans = node_id;</span><br><span class="line">                max_size = size;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans &lt; <span class="number">0</span> ? ranges::<span class="built_in">min</span>(initial) : ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n^2)</p>
+<p>Space: O(n)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -880,196 +1068,6 @@
 <h2 id="another-approach">Another approach</h2>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/trapping-rain-water/solutions/692342/jie-yu-shui-by-leetcode-solution-tuvc">动态规划/单调栈/双指针 - 力扣官方题解</a></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/11/LeetCode1766/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/11/LeetCode1766/" class="post-title-link" itemprop="url">LeetCode 1766 Tree of Coprimes</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-04-11 23:43:07 / Modified: 23:45:02" itemprop="dateCreated datePublished" datetime="2024-04-11T23:43:07+08:00">2024-04-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/tree-of-coprimes/">Tree of Coprimes - LeetCode</a></p>
-</blockquote>
-<h2 id="notes">Notes</h2>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/tree-of-coprimes/solutions/2729332/hu-zhi-shu-by-leetcode-solution-ef42">力扣官方题解</a></p>
-</blockquote>
-<p>DFS.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; gcds; </span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; tmp;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; g;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; dep;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> x, <span class="type">int</span> depth)</span> </span>&#123;</span><br><span class="line">        dep[x] = depth;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> val : gcds[nums[x]]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (tmp[val].<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        </span><br><span class="line">            <span class="type">int</span> las = tmp[val].<span class="built_in">back</span>();</span><br><span class="line">            <span class="keyword">if</span> (ans[x] == <span class="number">-1</span> || dep[las] &gt; dep[ans[x]]) &#123;</span><br><span class="line">                ans[x] = las;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        tmp[nums[x]].<span class="built_in">push_back</span>(x);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> val : g[x]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dep[val] == <span class="number">-1</span>) &#123; <span class="comment">// 被访问过的点dep不为-1</span></span><br><span class="line">                <span class="built_in">dfs</span>(nums, val, depth + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        tmp[nums[x]].<span class="built_in">pop_back</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">getCoprimes</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; edges)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 初始化</span></span><br><span class="line">        gcds.<span class="built_in">resize</span>(<span class="number">51</span>);</span><br><span class="line">        tmp.<span class="built_in">resize</span>(<span class="number">51</span>);</span><br><span class="line">        ans.<span class="built_in">resize</span>(n, <span class="number">-1</span>);</span><br><span class="line">        dep.<span class="built_in">resize</span>(n, <span class="number">-1</span>);</span><br><span class="line">        g.<span class="built_in">resize</span>(n);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">50</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">50</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">gcd</span>(i, j) == <span class="number">1</span>) &#123;</span><br><span class="line">                    gcds[i].<span class="built_in">push_back</span>(j);</span><br><span class="line">                &#125; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;val : edges) &#123;</span><br><span class="line">            g[val[<span class="number">0</span>]].<span class="built_in">push_back</span>(val[<span class="number">1</span>]);</span><br><span class="line">            g[val[<span class="number">1</span>]].<span class="built_in">push_back</span>(val[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">dfs</span>(nums, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(Cn)</p>
-<p>Space: O(C^2logC + Cn)</p>
-<h2 id="better-approach">Better approach</h2>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/tree-of-coprimes/solutions/2733992/dfs-zhong-ji-lu-jie-dian-zhi-de-shen-du-4v5d2">DFS 中记录节点值的深度和编号，回溯写法 - 灵茶山艾府</a></p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> MX = <span class="number">51</span>;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; coprime[MX];</span><br><span class="line"></span><br><span class="line"><span class="keyword">auto</span> init = [] &#123;</span><br><span class="line">    <span class="comment">// 预处理：coprime[i] 保存 [1, MX) 中与 i 互质的所有元素</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; MX; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt; MX; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">gcd</span>(i, j) == <span class="number">1</span>) &#123;</span><br><span class="line">                coprime[i].<span class="built_in">push_back</span>(j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; g;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">    pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; val_depth_id[MX]; <span class="comment">// 包含深度和节点编号</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> fa, <span class="type">int</span> depth, vector&lt;<span class="type">int</span>&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> val = nums[x]; <span class="comment">// x 的节点值</span></span><br><span class="line">        <span class="comment">// 计算与 val 互质的数中，深度最大的节点编号</span></span><br><span class="line">        <span class="type">int</span> max_depth = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j : coprime[val]) &#123;</span><br><span class="line">            <span class="keyword">auto</span> [depth, id] = val_depth_id[j];</span><br><span class="line">            <span class="keyword">if</span> (depth &gt; max_depth) &#123;</span><br><span class="line">                max_depth = depth;</span><br><span class="line">                ans[x] = id;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">auto</span> tmp = val_depth_id[val]; <span class="comment">// 用于恢复现场</span></span><br><span class="line">        val_depth_id[val] = &#123;depth, x&#125;; <span class="comment">// 保存 val 对应的节点深度和节点编号</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> y : g[x]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (y != fa) &#123;</span><br><span class="line">                <span class="built_in">dfs</span>(y, x, depth + <span class="number">1</span>, nums);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        val_depth_id[val] = tmp; <span class="comment">// 恢复现场</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">getCoprimes</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;edges)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        g.<span class="built_in">resize</span>(n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;e : edges) &#123;</span><br><span class="line">            <span class="type">int</span> x = e[<span class="number">0</span>], y = e[<span class="number">1</span>];</span><br><span class="line">            g[x].<span class="built_in">push_back</span>(y);</span><br><span class="line">            g[y].<span class="built_in">push_back</span>(x);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ans.<span class="built_in">resize</span>(n, <span class="number">-1</span>);</span><br><span class="line">        <span class="built_in">dfs</span>(<span class="number">0</span>, <span class="number">-1</span>, <span class="number">1</span>, nums);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(Cn)</p>
-<p>Space: O(c + n)</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/11/LeetCode402/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/11/LeetCode402/" class="post-title-link" itemprop="url">LeetCode 402 Remove K Digits</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-04-11 23:43:07 / Modified: 23:35:49" itemprop="dateCreated datePublished" datetime="2024-04-11T23:43:07+08:00">2024-04-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-k-digits/">Remove K Digits - LeetCode</a></p>
-</blockquote>
-<h2 id="notes">Notes</h2>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-k-digits/solutions/484940/yi-diao-kwei-shu-zi-by-leetcode-solution">力扣官方题解</a></p>
-</blockquote>
-<p>贪心 + 单调栈.</p>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">removeKdigits</span><span class="params">(string num, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        string stk;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> ch : num)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>( k &gt; <span class="number">0</span> &amp;&amp; !stk.<span class="built_in">empty</span>() &amp;&amp; stk.<span class="built_in">back</span>() &gt; ch )</span><br><span class="line">            &#123;</span><br><span class="line">                stk.<span class="built_in">pop_back</span>();</span><br><span class="line">                k--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (stk.<span class="built_in">empty</span>() &amp;&amp; ch == <span class="string">&#x27;0&#x27;</span>) <span class="keyword">continue</span>;</span><br><span class="line">            stk.<span class="built_in">push_back</span>(ch);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>( k &gt; <span class="number">0</span> &amp;&amp; !stk.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            stk.<span class="built_in">pop_back</span>();</span><br><span class="line">            k--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stk.<span class="built_in">empty</span>() ? <span class="string">&quot;0&quot;</span> : stk;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n)</p>
-<p>Space: O(n)</p>
-<h2 id="similar-problem">Similar problem</h2>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-k-digits/solutions/1/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5">一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～ - lucifer</a></p>
 </blockquote>
 
       
