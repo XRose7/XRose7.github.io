@@ -4,6 +4,138 @@
   
     
     <entry>
+      <title>LeetCode 1883 Minimum Skips to Arrive at Meeting On Time</title>
+      <link href="/2024/04/20/LeetCode1883/"/>
+      <url>/2024/04/20/LeetCode1883/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><a href="https://leetcode.com/problems/minimum-skips-to-arrive-at-meeting-on-time/">Minimum Skips to Arrive at Meeting On Time - LeetCode</a></p></blockquote><h2 id="notes">Notes</h2><blockquote><p><a href="https://leetcode.cn/problems/minimum-skips-to-arrive-at-meeting-on-time/solutions/2746611/jiao-ni-yi-bu-bu-si-kao-dong-tai-gui-hua-gxd2">教你一步步思考动态规划：从记忆化搜索到递推 - 灵茶山艾府</a></p></blockquote><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minSkips</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; dist, <span class="type">int</span> speed, <span class="type">int</span> hoursBefore)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">accumulate</span>(dist.<span class="built_in">begin</span>(), dist.<span class="built_in">end</span>(), <span class="number">0</span>) &gt; (<span class="type">long</span> <span class="type">long</span>) speed * hoursBefore) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> n = dist.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">f</span><span class="params">(n)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; ; i++) &#123;</span><br><span class="line">            <span class="type">int</span> pre = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n - <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="type">int</span> tmp = f[j + <span class="number">1</span>];</span><br><span class="line">                f[j + <span class="number">1</span>] = (f[j] + dist[j] + speed - <span class="number">1</span>) / speed * speed;</span><br><span class="line">                <span class="keyword">if</span> (i) &#123;</span><br><span class="line">                    f[j + <span class="number">1</span>] = <span class="built_in">min</span>(f[j + <span class="number">1</span>], pre + dist[j]);</span><br><span class="line">                &#125;</span><br><span class="line">                pre = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (f[n - <span class="number">1</span>] + dist[n - <span class="number">1</span>] &lt;= (<span class="type">long</span> <span class="type">long</span>) speed * hoursBefore) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Time: O(n^2)</p><p>Space: O(n)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> array/string </tag>
+            
+            <tag> dynamic-programming </tag>
+            
+            <tag> todo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode 200 Number of Islands</title>
+      <link href="/2024/04/20/LeetCode200/"/>
+      <url>/2024/04/20/LeetCode200/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><a href="https://leetcode.com/problems/number-of-islands/">Number of Islands - leetCode</a></p></blockquote><h2 id="notes">Notes</h2><blockquote><p><a href="https://leetcode.cn/problems/number-of-islands/solutions/13103/dao-yu-shu-liang-by-leetcode">力扣官方题解</a></p></blockquote><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt;&amp; grid, <span class="type">int</span> r, <span class="type">int</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> nr = grid.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> nc = grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        grid[r][c] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span> (r - <span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; grid[r<span class="number">-1</span>][c] == <span class="string">&#x27;1&#x27;</span>) <span class="built_in">dfs</span>(grid, r - <span class="number">1</span>, c);</span><br><span class="line">        <span class="keyword">if</span> (r + <span class="number">1</span> &lt; nr &amp;&amp; grid[r+<span class="number">1</span>][c] == <span class="string">&#x27;1&#x27;</span>) <span class="built_in">dfs</span>(grid, r + <span class="number">1</span>, c);</span><br><span class="line">        <span class="keyword">if</span> (c - <span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; grid[r][c<span class="number">-1</span>] == <span class="string">&#x27;1&#x27;</span>) <span class="built_in">dfs</span>(grid, r, c - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (c + <span class="number">1</span> &lt; nc &amp;&amp; grid[r][c+<span class="number">1</span>] == <span class="string">&#x27;1&#x27;</span>) <span class="built_in">dfs</span>(grid, r, c + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numIslands</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> nr = grid.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span> (!nr) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> nc = grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> num_islands = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> r = <span class="number">0</span>; r &lt; nr; ++r) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> c = <span class="number">0</span>; c &lt; nc; ++c) &#123;</span><br><span class="line">                <span class="keyword">if</span> (grid[r][c] == <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">                    ++num_islands;</span><br><span class="line">                    <span class="built_in">dfs</span>(grid, r, c);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> num_islands;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Time: O(mn)</p><p>Space: O(min(m, n))</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> array/string </tag>
+            
+            <tag> depth-first-search </tag>
+            
+            <tag> breadth-first-search </tag>
+            
+            <tag> todo </tag>
+            
+            <tag> matrix </tag>
+            
+            <tag> union-find </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode 39 Combination Sum</title>
+      <link href="/2024/04/20/LeetCode39/"/>
+      <url>/2024/04/20/LeetCode39/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><a href="https://leetcode.com/problems/combination-sum/">Combination Sum - LeetCode</a></p></blockquote><h2 id="notes">Notes</h2><blockquote><p><a href="https://leetcode.cn/problems/combination-sum/solutions/406516/zu-he-zong-he-by-leetcode-solution">力扣官方题解</a></p></blockquote><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; candidates, <span class="type">int</span> target, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; ans, vector&lt;<span class="type">int</span>&gt;&amp; combine, <span class="type">int</span> idx)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (idx == candidates.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (target == <span class="number">0</span>) &#123;</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(combine);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 直接跳过</span></span><br><span class="line">        <span class="built_in">dfs</span>(candidates, target, ans, combine, idx + <span class="number">1</span>);</span><br><span class="line">        <span class="comment">// 选择当前数</span></span><br><span class="line">        <span class="keyword">if</span> (target - candidates[idx] &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            combine.<span class="built_in">emplace_back</span>(candidates[idx]);</span><br><span class="line">            <span class="built_in">dfs</span>(candidates, target - candidates[idx], ans, combine, idx);</span><br><span class="line">            combine.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">combinationSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; candidates, <span class="type">int</span> target) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; combine;</span><br><span class="line">        <span class="built_in">dfs</span>(candidates, target, ans, combine, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><blockquote><ul><li>时间复杂度：<span class="math inline">\(O(S)\)</span> ，其中 <span class="math inline">\(S\)</span> 为所有可行解的长度之和。从分析给出的搜索树我们可以看出时间复杂度取决于搜索树所有叶子节点的深度之和，即所有可行解的长度之和。在这题中，我们很难给出一个比较紧的上界，我们知道 <span class="math inline">\(O(n \times 2^n)\)</span> 是一个比较松的上界，即在这份代码中，<span class="math inline">\(n\)</span> 个位置每次考虑选或者不选，如果符合条件，就加入答案的时间代价。但是实际运行的时候，因为不可能所有的解都满足条件，递归的时候我们还会用 <span class="math inline">\(\textit{target} - \textit{candidates}[\textit{idx}] \ge 0\)</span> 进行剪枝，所以实际运行情况是远远小于这个上界的。</li><li>空间复杂度：<span class="math inline">\(O(\textit{target})\)</span> 。除答案数组外，空间复杂度取决于递归的栈深度，在最差情况下需要递归 <span class="math inline">\(O(\textit{target})\)</span> 层。</li></ul></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> array/string </tag>
+            
+            <tag> todo </tag>
+            
+            <tag> backtracking </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode 1992 Find All Groups of Farmland</title>
+      <link href="/2024/04/19/LeetCode1992/"/>
+      <url>/2024/04/19/LeetCode1992/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><a href="https://leetcode.com/problems/find-all-groups-of-farmland/">Find All Groups of Farmland - LeetCode</a></p></blockquote><h2 id="notes">Notes</h2><blockquote><p><a href="https://leetcode.cn/problems/find-all-groups-of-farmland/solutions/978685/python3-1bfsji-yi-hua-by-hanxin_hanxin-9u1i">（1）bfs+记忆化 （2）dfs+记忆化 - HanXin</a></p></blockquote><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> </span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> dirs[<span class="number">4</span>][<span class="number">2</span>] &#123;&#123;<span class="number">-1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">0</span>, <span class="number">1</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; land;</span><br><span class="line">    <span class="type">int</span> Row;</span><br><span class="line">    <span class="type">int</span> Col;</span><br><span class="line"></span><br><span class="line">    <span class="function">pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; <span class="title">bfs</span><span class="params">(<span class="type">int</span> sr, <span class="type">int</span> sc)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="type">int</span> r2 = sr;</span><br><span class="line">        <span class="type">int</span> c2 = sc;</span><br><span class="line">        queue&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; q;</span><br><span class="line">        q.<span class="built_in">push</span>(&#123;sr, sc&#125;);</span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> [r, c] = q.<span class="built_in">front</span>();    q.<span class="built_in">pop</span>();</span><br><span class="line">            r2 = <span class="built_in">max</span>(r2, r);</span><br><span class="line">            c2 = <span class="built_in">max</span>(c2, c);</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> di = <span class="number">0</span>; di &lt; <span class="number">4</span>; di ++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> dr = dirs[di][<span class="number">0</span>],    dc = dirs[di][<span class="number">1</span>];</span><br><span class="line">                <span class="type">int</span> nr = r + dr,    nc = c + dc;</span><br><span class="line">                <span class="keyword">if</span> (<span class="number">0</span> &lt;= nr &amp;&amp; nr &lt; Row &amp;&amp; <span class="number">0</span> &lt;= nc &amp;&amp; nc &lt; Col &amp;&amp; land[nr][nc] == <span class="number">1</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    land[nr][nc] = <span class="number">0</span>;</span><br><span class="line">                    q.<span class="built_in">push</span>(&#123;nr, nc&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&#123;r2, c2&#125;;</span><br><span class="line">    &#125;    </span><br><span class="line"></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">findFarmland</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; land) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;land = land;</span><br><span class="line">        Row = (<span class="type">int</span>)land.<span class="built_in">size</span>();</span><br><span class="line">        Col = (<span class="type">int</span>)land[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> r = <span class="number">0</span>; r &lt; Row; r ++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> c = <span class="number">0</span>; c &lt; Col; c ++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;land[r][c] == <span class="number">1</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">this</span>-&gt;land[r][c] = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">auto</span> [r2, c2] = <span class="built_in">bfs</span>(r, c);</span><br><span class="line">                    res.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;r, c, r2, c2&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Time: O(n)</p><p>Space: O(n)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> array/string </tag>
+            
+            <tag> depth-first-search </tag>
+            
+            <tag> todo </tag>
+            
+            <tag> breadth-first-search matrix </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 2007 Find Original Array From Doubled Array</title>
       <link href="/2024/04/18/LeetCode2007/"/>
       <url>/2024/04/18/LeetCode2007/</url>
@@ -57,11 +189,11 @@
             
             <tag> LeetCode </tag>
             
+            <tag> array/string </tag>
+            
             <tag> depth-first-search </tag>
             
             <tag> breadth-first-search </tag>
-            
-            <tag> array/string </tag>
             
             <tag> todo </tag>
             
@@ -269,9 +401,9 @@
             
             <tag> linked-list </tag>
             
-            <tag> design </tag>
-            
             <tag> todo </tag>
+            
+            <tag> design </tag>
             
             <tag> hash-function </tag>
             
@@ -339,9 +471,9 @@
             
             <tag> linked-list </tag>
             
-            <tag> design </tag>
-            
             <tag> todo </tag>
+            
+            <tag> design </tag>
             
             <tag> hash-function </tag>
             
@@ -500,13 +632,13 @@
             
             <tag> LeetCode </tag>
             
+            <tag> array/string </tag>
+            
             <tag> depth-first-search </tag>
             
             <tag> breadth-first-search </tag>
             
             <tag> tree </tag>
-            
-            <tag> array/string </tag>
             
             <tag> todo </tag>
             
@@ -541,9 +673,9 @@
             
             <tag> array/string </tag>
             
-            <tag> stack </tag>
-            
             <tag> todo </tag>
+            
+            <tag> stack </tag>
             
             <tag> greedy </tag>
             
@@ -735,9 +867,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> sliding-window </tag>
-            
             <tag> array/string </tag>
+            
+            <tag> sliding-window </tag>
             
             <tag> todo </tag>
             
@@ -776,9 +908,9 @@
             
             <tag> hash-table </tag>
             
-            <tag> design </tag>
-            
             <tag> todo </tag>
+            
+            <tag> design </tag>
             
         </tags>
       
@@ -809,9 +941,9 @@
             
             <tag> dynamic-programming </tag>
             
-            <tag> stack </tag>
-            
             <tag> todo </tag>
+            
+            <tag> stack </tag>
             
             <tag> greedy </tag>
             
@@ -1210,9 +1342,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> sliding-window </tag>
-            
             <tag> array/string </tag>
+            
+            <tag> sliding-window </tag>
             
             <tag> todo </tag>
             
@@ -1245,15 +1377,15 @@
             
             <tag> LeetCode </tag>
             
+            <tag> array/string </tag>
+            
             <tag> binary-tree </tag>
             
             <tag> tree </tag>
             
-            <tag> array/string </tag>
+            <tag> todo </tag>
             
             <tag> stack </tag>
-            
-            <tag> todo </tag>
             
         </tags>
       
@@ -1313,9 +1445,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> sliding-window </tag>
-            
             <tag> array/string </tag>
+            
+            <tag> sliding-window </tag>
             
             <tag> hash-table </tag>
             
@@ -1377,9 +1509,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> sliding-window </tag>
-            
             <tag> array/string </tag>
+            
+            <tag> sliding-window </tag>
             
         </tags>
       
@@ -1437,9 +1569,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> sliding-window </tag>
-            
             <tag> array/string </tag>
+            
+            <tag> sliding-window </tag>
             
             <tag> hash-table </tag>
             
@@ -1499,9 +1631,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> sliding-window </tag>
-            
             <tag> array/string </tag>
+            
+            <tag> sliding-window </tag>
             
         </tags>
       
@@ -1528,9 +1660,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> design </tag>
-            
             <tag> todo </tag>
+            
+            <tag> design </tag>
             
             <tag> heap/priority-queue </tag>
             
@@ -1691,9 +1823,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> breadth-first-search </tag>
-            
             <tag> array/string </tag>
+            
+            <tag> breadth-first-search </tag>
             
             <tag> dynamic-programming </tag>
             
@@ -1763,9 +1895,9 @@
             
             <tag> dynamic-programming </tag>
             
-            <tag> stack </tag>
-            
             <tag> todo </tag>
+            
+            <tag> stack </tag>
             
             <tag> matrix </tag>
             
@@ -1926,9 +2058,9 @@
             
             <tag> two-pointers </tag>
             
-            <tag> stack </tag>
-            
             <tag> todo </tag>
+            
+            <tag> stack </tag>
             
             <tag> binary-search </tag>
             
@@ -2318,9 +2450,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> sliding-window </tag>
-            
             <tag> array/string </tag>
+            
+            <tag> sliding-window </tag>
             
             <tag> hash-table </tag>
             
@@ -2616,35 +2748,6 @@
     
     
     <entry>
-      <title>LeetCode 3062 Winner of the Linked List Game</title>
-      <link href="/2024/03/09/LeetCode3062/"/>
-      <url>/2024/03/09/LeetCode3062/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p><a href="https://leetcode.com/problems/winner-of-the-linked-list-game/">Winner of the Linked List Game - LeetCode</a></p></blockquote><h2 id="thinkings">Thinkings</h2><p>直接遍历链表模拟统计即可.</p><h2 id="codes">Codes</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">gameResult</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> oddPoints = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> evenPoints = <span class="number">0</span>;</span><br><span class="line">        ListNode* evenNode = head;</span><br><span class="line">        ListNode* oddNode;</span><br><span class="line">        <span class="keyword">while</span> (evenNode) &#123;</span><br><span class="line">            oddNode = evenNode-&gt;next;</span><br><span class="line">            <span class="type">int</span> evenVal = evenNode-&gt;val;</span><br><span class="line">            <span class="type">int</span> oddVal = oddNode-&gt;val;</span><br><span class="line">            <span class="keyword">if</span> (evenVal &gt; oddVal) &#123;</span><br><span class="line">                ++evenPoints;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                ++oddPoints;</span><br><span class="line">            &#125;</span><br><span class="line">            evenNode = oddNode-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (evenPoints &gt; oddPoints) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Even&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (evenPoints &lt; oddPoints) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Odd&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Tie&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Time: O(n)</p><p>Space: O(1)</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> LeetCode </category>
-          
-          <category> Premium </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> LeetCode </tag>
-            
-            <tag> linked-list </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>LeetCode 3063 Linked List Frequency</title>
       <link href="/2024/03/09/LeetCode3063/"/>
       <url>/2024/03/09/LeetCode3063/</url>
@@ -2670,6 +2773,35 @@
             <tag> linked-list </tag>
             
             <tag> couting </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode 3062 Winner of the Linked List Game</title>
+      <link href="/2024/03/09/LeetCode3062/"/>
+      <url>/2024/03/09/LeetCode3062/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><a href="https://leetcode.com/problems/winner-of-the-linked-list-game/">Winner of the Linked List Game - LeetCode</a></p></blockquote><h2 id="thinkings">Thinkings</h2><p>直接遍历链表模拟统计即可.</p><h2 id="codes">Codes</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">gameResult</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> oddPoints = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> evenPoints = <span class="number">0</span>;</span><br><span class="line">        ListNode* evenNode = head;</span><br><span class="line">        ListNode* oddNode;</span><br><span class="line">        <span class="keyword">while</span> (evenNode) &#123;</span><br><span class="line">            oddNode = evenNode-&gt;next;</span><br><span class="line">            <span class="type">int</span> evenVal = evenNode-&gt;val;</span><br><span class="line">            <span class="type">int</span> oddVal = oddNode-&gt;val;</span><br><span class="line">            <span class="keyword">if</span> (evenVal &gt; oddVal) &#123;</span><br><span class="line">                ++evenPoints;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                ++oddPoints;</span><br><span class="line">            &#125;</span><br><span class="line">            evenNode = oddNode-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (evenPoints &gt; oddPoints) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Even&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (evenPoints &lt; oddPoints) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Odd&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Tie&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Time: O(n)</p><p>Space: O(1)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+          <category> Premium </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> linked-list </tag>
             
         </tags>
       
@@ -3221,13 +3353,13 @@
             
             <tag> LeetCode </tag>
             
+            <tag> array/string </tag>
+            
             <tag> depth-first-search </tag>
             
             <tag> breadth-first-search </tag>
             
             <tag> tree </tag>
-            
-            <tag> array/string </tag>
             
             <tag> hash-table </tag>
             
@@ -3716,9 +3848,9 @@
             
             <tag> sorting </tag>
             
-            <tag> math </tag>
-            
             <tag> binary-search </tag>
+            
+            <tag> math </tag>
             
             <tag> bit-manipulation </tag>
             
@@ -4242,9 +4374,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> sliding-window </tag>
-            
             <tag> array/string </tag>
+            
+            <tag> sliding-window </tag>
             
             <tag> hash-table </tag>
             
@@ -5549,6 +5681,31 @@
     
     
     <entry>
+      <title>LeetCode 121 Best Time to Buy and Sell Stock</title>
+      <link href="/2024/01/13/LeetCode121/"/>
+      <url>/2024/01/13/LeetCode121/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/">Best Time to Buy and Sell Stock - LeetCode</a></p></blockquote><h2 id="thinkings">Thinkings</h2><p>动态规划，可以是从后往前更新最大出售价，也可以是从前往后更新最小购买价，再更新最大利益.</p><h2 id="codes">Codes</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = prices.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">maxPrices</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">        maxPrices[n<span class="number">-1</span>] = prices[n<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = n<span class="number">-2</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            maxPrices[i] = <span class="built_in">max</span>(maxPrices[i+<span class="number">1</span>], prices[i]); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> maxProfit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            maxProfit = <span class="built_in">max</span>(maxProfit, maxPrices[i] - prices[i]); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxProfit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Time: O(n)</p><p>Space: O(n)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 122 Best Time to Buy and Sell Stock II</title>
       <link href="/2024/01/13/LeetCode122/"/>
       <url>/2024/01/13/LeetCode122/</url>
@@ -5570,31 +5727,6 @@
             <tag> LeetCode </tag>
             
             <tag> top-interview-150 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>LeetCode 121 Best Time to Buy and Sell Stock</title>
-      <link href="/2024/01/13/LeetCode121/"/>
-      <url>/2024/01/13/LeetCode121/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/">Best Time to Buy and Sell Stock - LeetCode</a></p></blockquote><h2 id="thinkings">Thinkings</h2><p>动态规划，可以是从后往前更新最大出售价，也可以是从前往后更新最小购买价，再更新最大利益.</p><h2 id="codes">Codes</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = prices.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">maxPrices</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">        maxPrices[n<span class="number">-1</span>] = prices[n<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = n<span class="number">-2</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            maxPrices[i] = <span class="built_in">max</span>(maxPrices[i+<span class="number">1</span>], prices[i]); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> maxProfit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            maxProfit = <span class="built_in">max</span>(maxProfit, maxPrices[i] - prices[i]); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxProfit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Time: O(n)</p><p>Space: O(n)</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> LeetCode </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> LeetCode </tag>
             
         </tags>
       
