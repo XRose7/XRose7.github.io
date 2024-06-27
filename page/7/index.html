@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">225</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -175,6 +175,193 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/06/LeetCode1249/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/06/LeetCode1249/" class="post-title-link" itemprop="url">LeetCode 1249 Minimum Remove to Make Valid Parentheses</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-04-06 23:43:07 / Modified: 18:39:50" itemprop="dateCreated datePublished" datetime="2024-04-06T23:43:07+08:00">2024-04-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/">Minimum Remove to Make Valid Parentheses - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>栈的应用. 括号匹配，不过这次右括号也要入栈，最后栈中残余的括号就是无法匹配的括号，将其从字符串中删除即可.</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">minRemoveToMakeValid</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        string res = s;</span><br><span class="line">        stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i] == <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (s[i] == <span class="string">&#x27;)&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!stk.<span class="built_in">empty</span>() &amp;&amp; s[stk.<span class="built_in">top</span>()] == <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                    stk.<span class="built_in">pop</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    stk.<span class="built_in">push</span>(i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (!stk.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            res.<span class="built_in">erase</span>(stk.<span class="built_in">top</span>(), <span class="number">1</span>);</span><br><span class="line">            stk.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(n)</p>
+<h2 id="notes">Notes</h2>
+<h3 id="counting-approach">Counting approach</h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-remove-to-make-valid-parentheses/solutions/1081746/2chong-jie-fa-jian-ji-dai-ma-miao-dong-x-a1lg">2种解法,简洁代码,秒懂详解--[1249] - 疯子</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-remove-to-make-valid-parentheses/solutions/914566/cpython18xing-dai-ma-fei-zhan-shi-xian-t-00bs">C++/Python【18行代码/非栈实现】：统计右括号个数，遍历时挨个判断是否需要保留 - Bandari</a></p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">minRemoveToMakeValid</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = <span class="built_in">count</span>(<span class="built_in">begin</span>(s), <span class="built_in">end</span>(s), <span class="string">&#x27;)&#x27;</span>);</span><br><span class="line">        string result = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; c : s) &#123;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (r &gt; <span class="number">0</span>) result += c, l++, r--; <span class="comment">// 增加配对计数</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">&#x27;)&#x27;</span>)</span><br><span class="line">                l &gt; <span class="number">0</span> ? result += c, l-- : r--; <span class="comment">// 进行配对</span></span><br><span class="line">            <span class="keyword">else</span> result += c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(1)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/06/LeetCode1483/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/06/LeetCode1483/" class="post-title-link" itemprop="url">LeetCode 1483 Kth Ancestor of a Tree Node</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-04-06 23:43:07 / Modified: 19:11:58" itemprop="dateCreated datePublished" datetime="2024-04-06T23:43:07+08:00">2024-04-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/kth-ancestor-of-a-tree-node/">Kth Ancestor of a Tree Node - LeetCode</a></p>
+</blockquote>
+<h2 id="notes">Notes</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/kth-ancestor-of-a-tree-node/solutions/287974/li-kou-zai-zhu-jian-ba-acm-mo-ban-ti-ban-shang-lai">力扣在逐渐把 ACM 模板题搬上来，这个问题是 Binary Lifting - liuyubobobo</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/kth-ancestor-of-a-tree-node/solutions/2305895/mo-ban-jiang-jie-shu-shang-bei-zeng-suan-v3rw">【模板讲解】树上倍增算法（以及最近公共祖先） - 灵茶山艾府</a></p>
+</blockquote>
+<p>Binary lifting, 倍增算法. 好难:(</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TreeAncestor</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; dp;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">TreeAncestor</span>(<span class="type">int</span> n, vector&lt;<span class="type">int</span>&gt;&amp; parent) : <span class="built_in">dp</span>(n) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">            dp[i].<span class="built_in">push_back</span>(parent[i]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; ; j ++)&#123;</span><br><span class="line">            <span class="type">bool</span> allneg = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">                <span class="type">int</span> t = dp[i][j - <span class="number">1</span>] != <span class="number">-1</span> ? dp[dp[i][j - <span class="number">1</span>]][j - <span class="number">1</span>] : <span class="number">-1</span>;</span><br><span class="line">                dp[i].<span class="built_in">push_back</span>(t);</span><br><span class="line">                <span class="keyword">if</span>(t != <span class="number">-1</span>) allneg = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(allneg) <span class="keyword">break</span>; <span class="comment">// 所有的节点的 2^j 的祖先都是 -1 了，就不用再计算了</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getKthAncestor</span><span class="params">(<span class="type">int</span> node, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(k == <span class="number">0</span> || node== <span class="number">-1</span>) <span class="keyword">return</span> node;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> pos = <span class="built_in">ffs</span>(k) - <span class="number">1</span>; <span class="comment">// C++ 语言中 ffs(k) 求解出 k 的最右侧第一个 1 的位置（1-based）</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> pos &lt; dp[node].<span class="built_in">size</span>() ? <span class="built_in">getKthAncestor</span>(dp[node][pos], k - (<span class="number">1</span> &lt;&lt; pos)) : <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(nlogn)</p>
+<p>Space: O(nlogn)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -907,198 +1094,6 @@
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/all-possible-full-binary-trees/solutions/2713780/suo-you-ke-neng-de-zhen-er-cha-shu-by-le-1uku">所有可能的真二叉树 - 力扣官方题解</a></p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;TreeNode*&gt; <span class="title">allPossibleFBT</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        vector&lt;TreeNode*&gt; fullBinaryTrees;</span><br><span class="line">        <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> fullBinaryTrees;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">            fullBinaryTrees = &#123;<span class="keyword">new</span> <span class="built_in">TreeNode</span>(<span class="number">0</span>)&#125;;</span><br><span class="line">            <span class="keyword">return</span> fullBinaryTrees;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i += <span class="number">2</span>) &#123;</span><br><span class="line">            vector&lt;TreeNode*&gt; leftSubtrees = <span class="built_in">allPossibleFBT</span>(i);</span><br><span class="line">            vector&lt;TreeNode*&gt; rightSubtrees = <span class="built_in">allPossibleFBT</span>(n - <span class="number">1</span> - i);</span><br><span class="line">            <span class="keyword">for</span> (TreeNode* leftSubtree : leftSubtrees) &#123;</span><br><span class="line">                <span class="keyword">for</span> (TreeNode* rightSubtree : rightSubtrees) &#123;</span><br><span class="line">                    TreeNode *root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(<span class="number">0</span>, leftSubtree, rightSubtree);</span><br><span class="line">                    fullBinaryTrees.<span class="built_in">emplace_back</span>(root);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fullBinaryTrees;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/01/LeetCode2810/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/01/LeetCode2810/" class="post-title-link" itemprop="url">LeetCode 2810 Faulty Keyboard</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-04-01 23:43:07 / Modified: 14:13:12" itemprop="dateCreated datePublished" datetime="2024-04-01T23:43:07+08:00">2024-04-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/faulty-keyboard/">Faulty Keyboard - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>模拟. 我直接用标准库里的 <code>reverse()</code> 函数了x</p>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">finalString</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        string res = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; c : s) &#123;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;i&#x27;</span>) &#123;</span><br><span class="line">                <span class="built_in">reverse</span>(res.<span class="built_in">begin</span>(), res.<span class="built_in">end</span>());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                res += c;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n)</p>
-<p>Space: O(1)</p>
-<h2 id="notes">Notes</h2>
-<h3 id="dequeue-approach">Dequeue approach</h3>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/faulty-keyboard/solutions/2375152/shuang-duan-dui-lie-on-zuo-fa-by-endless-5pe1">双端队列 O(n) 做法 - 灵茶山艾府</a></p>
-<p>把反转看成是往字符串的头部添加字符</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">finalString</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        deque&lt;<span class="type">char</span>&gt; q;</span><br><span class="line">        <span class="type">bool</span> tail = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;i&#x27;</span>) tail = !tail; <span class="comment">// 修改添加方向</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (tail) q.<span class="built_in">push_back</span>(c); <span class="comment">// 加尾部</span></span><br><span class="line">            <span class="keyword">else</span> q.<span class="built_in">push_front</span>(c); <span class="comment">// 加头部</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> tail ? <span class="built_in">string</span>(q.<span class="built_in">begin</span>(), q.<span class="built_in">end</span>()) : <span class="built_in">string</span>(q.<span class="built_in">rbegin</span>(), q.<span class="built_in">rend</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n)</p>
-<p>Space: O(n)</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/01/LeetCode58/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/01/LeetCode58/" class="post-title-link" itemprop="url">LeetCode 58 Length of Last Word</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-04-01 23:43:07 / Modified: 14:05:32" itemprop="dateCreated datePublished" datetime="2024-04-01T23:43:07+08:00">2024-04-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/length-of-last-word/">Length of Last Word - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>一眼 split 的实现x</p>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLastWord</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="function">istringstream <span class="title">iss</span><span class="params">(s)</span></span>;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">while</span> (iss &gt;&gt; res);</span><br><span class="line">        <span class="keyword">return</span> res.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n)</p>
-<p>Space: O(n)</p>
-<h2 id="notes">Notes</h2>
-<p>其实这道题只要最后一个 word 的长度，只用反向遍历完一个 word 的长度即可.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLastWord</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i] != <span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">                ++cnt;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cnt != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n)</p>
-<p>Space: O(1)</p>
-<h3 id="split"><code>split</code></h3>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://xrose7.github.io/2024/03/11/LeetCode2129/">LeetCode 2129 Capitalize the Title</a></p>
-</blockquote>
 
       
     </div>
