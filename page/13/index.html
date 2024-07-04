@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">232</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -175,6 +175,629 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/13/LeetCode2485/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/03/13/LeetCode2485/" class="post-title-link" itemprop="url">LeetCode 2485 Find the Pivot Integer</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-03-13 23:43:07 / Modified: 12:12:37" itemprop="dateCreated datePublished" datetime="2024-03-13T23:43:07+08:00">2024-03-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-pivot-integer/">Find the Pivot Integer - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>等差数列求和列等式解 <span class="math inline">\(x\)</span> .</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">pivotInteger</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">double</span> x = <span class="built_in">sqrt</span>(n * (n + <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">floor</span>(x) == <span class="built_in">ceil</span>(x)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">floor</span>(x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(1)</p>
+<p>Space: O(1)</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/numeric/math/floor">std::floor, std::floorf, std::floorl - cppreference</a></p>
+<p>The <code>floor()</code> function in C++ returns the largest possible integer value which is less than or equal to the given argument.</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/numeric/math/ceil">std::ceil, std::ceilf, std::ceill - cppreference</a></p>
+<p>The <code>ceil()</code> function in C++ returns the smallest possible integer value which is greater than or equal to the given argument.</p>
+</blockquote>
+<h2 id="notes">Notes</h2>
+<h3 id="prefix-sum-approach">Prefix-sum approach</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">pivotInteger</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> s = n * (n + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(t == s - t - i) &#123;</span><br><span class="line">            	<span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">            	t += i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(1)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/13/LeetCode2864/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/03/13/LeetCode2864/" class="post-title-link" itemprop="url">LeetCode 2864 Maximum Odd Binary Number</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-03-13 23:43:07 / Modified: 14:14:44" itemprop="dateCreated datePublished" datetime="2024-03-13T23:43:07+08:00">2024-03-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-odd-binary-number/description/">Maximum Odd Binary Number - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>遍历 s ，统计 <code>1</code> 的个数，按顺序输出 <code>0</code> 和 <code>1</code> 即可.</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">maximumOddBinaryNumber</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i] == <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">                ++count;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        string res = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; count - <span class="number">1</span>; ++i) &#123;</span><br><span class="line">            res += <span class="string">&quot;1&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - count; ++i) &#123;</span><br><span class="line">            res += <span class="string">&quot;0&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            res += <span class="string">&quot;1&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(1)</p>
+<h2 id="notes">Notes</h2>
+<h3 id="another-approach">Another approach</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">maximumOddBinaryNumber</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> one_count = <span class="built_in">count</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>(), <span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">string</span>(one_count - <span class="number">1</span>, <span class="string">&#x27;1&#x27;</span>) + <span class="built_in">string</span>(n - one_count, <span class="string">&#x27;0&#x27;</span>) + <span class="string">&quot;1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(1)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">maximumOddBinaryNumber</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">         <span class="function">string <span class="title">ans</span><span class="params">(s.size(), <span class="string">&#x27;0&#x27;</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">const</span> <span class="keyword">auto</span>&amp; i : s) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">                ans[index++] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans[--index] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        ans[s.<span class="built_in">size</span>() - <span class="number">1</span>] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(1)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/12/LeetCode1171/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/03/12/LeetCode1171/" class="post-title-link" itemprop="url">LeetCode 1171 Remove Zero Sum Consecutive Nodes from Linked List</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-03-12 23:43:07 / Modified: 15:34:03" itemprop="dateCreated datePublished" datetime="2024-03-12T23:43:07+08:00">2024-03-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/">Remove Zero Sum Consecutive Nodes from Linked List - LeetCode</a></p>
+</blockquote>
+<h2 id="notes">Notes</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-zero-sum-consecutive-nodes-from-linked-list/solutions/2304678/python3javacgotypescript-yi-ti-yi-jie-qi-3vsy">一题一解：前缀和 + 哈希表 - ylb</a></p>
+<p><strong>若链表节点的两个前缀和相等，说明两个前缀和之间的连续节点序列的和为 0 ，那么可以消去这部分连续节点.</strong></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-zero-sum-consecutive-nodes-from-linked-list/solutions/2297308/cong-lian-biao-zhong-shan-qu-zong-he-zhi-h18o/comments/2040654">从链表中删去总和值为零的连续节点 - 题解评论 - Edward Elric</a></p>
+<p>但删除也带来了一定问题，那就是删除掉的一系列节点的区间和需要“作废”，否则后续你再次尝试查找区间和时，可能会查到已经被删除的节点对应的区间和，产生“幽灵”一般的效果。所以最初遇见这题，想要做单次遍历，想到的很自然是在需要删除时，顺便删除掉所有对应的哈希表项（间接导致我需要记录下每个节点对应的前缀和）</p>
+<p>这样就不会有“幽灵区间”的问题了，但是代码看起来不大好看了，复杂度方面，由于删除的节点最多就n个，所以时间复杂度仍然是<code>O(n)</code>。而题解则是用了一种<strong>更加巧妙</strong>的做法：</p>
+<ul>
+<li>第一遍遍历，记录前缀和和节点，如果有多个相同的前缀和，则保留最后一个（这个很重要）</li>
+<li>第二遍遍历，第一次遇到相同前缀和，则直接进行删除（删掉第一次和最后一次相同前缀和的整个序列）</li>
+<li>第一遍遍历保留最后一个，确保了第二遍总是会向后查找，而非向前查找，也就不需要去动态维护 map 里的元素了</li>
+</ul>
+</blockquote>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeZeroSumSublists</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>, head);</span><br><span class="line">        <span class="type">int</span> prefix = <span class="number">0</span>;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, ListNode*&gt; seen;</span><br><span class="line">        <span class="keyword">for</span> (ListNode* node = dummy; node; node = node-&gt;next) &#123;</span><br><span class="line">            prefix += node-&gt;val;</span><br><span class="line">            seen[prefix] = node;</span><br><span class="line">        &#125;</span><br><span class="line">        prefix = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (ListNode* node = dummy; node; node = node-&gt;next) &#123;</span><br><span class="line">            prefix += node-&gt;val;</span><br><span class="line">            node-&gt;next = seen[prefix]-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(n)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/12/LeetCode1261/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/03/12/LeetCode1261/" class="post-title-link" itemprop="url">LeetCode 1261 Find Elements in a Contaminated Binary Tree</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-03-12 23:43:07 / Modified: 15:26:10" itemprop="dateCreated datePublished" datetime="2024-03-12T23:43:07+08:00">2024-03-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree/">Find Elements in a Contaminated Binary Tree - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>dfs 加辅助存储用空间换时间.</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FindElements</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; map;</span><br><span class="line">    <span class="built_in">FindElements</span>(TreeNode* root) &#123;</span><br><span class="line">        root-&gt;val = <span class="number">0</span>;</span><br><span class="line">        function&lt;<span class="type">void</span>(TreeNode*)&gt; dfs = [&amp;](TreeNode* root) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root) &#123;</span><br><span class="line">                <span class="keyword">if</span> (root-&gt;left) &#123;</span><br><span class="line">                    <span class="type">int</span> tmp = root-&gt;val * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">                    ++map[tmp];</span><br><span class="line">                    root-&gt;left-&gt;val = tmp;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (root-&gt;right) &#123;</span><br><span class="line">                    <span class="type">int</span> tmp = root-&gt;val * <span class="number">2</span> + <span class="number">2</span>;</span><br><span class="line">                    ++map[tmp];</span><br><span class="line">                    root-&gt;right-&gt;val = tmp;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">dfs</span>(root-&gt;left);</span><br><span class="line">                <span class="built_in">dfs</span>(root-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">dfs</span>(root);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">find</span><span class="params">(<span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (target == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> map[target] &gt; <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your FindElements object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * FindElements* obj = new FindElements(root);</span></span><br><span class="line"><span class="comment"> * bool param_1 = obj-&gt;find(target);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>Time:</p>
+<ul>
+<li>FindElements(): O(n)</li>
+<li>find(): O(1)</li>
+</ul>
+<p>Space: O(n)</p>
+<h2 id="notes">Notes</h2>
+<h3 id="faster-dfs-hash-map-approach">Faster DFS + hash map approach</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FindElements</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; map;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root-&gt;left) &#123;</span><br><span class="line">                <span class="type">int</span> tmp = root-&gt;val * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">                ++map[tmp];</span><br><span class="line">                root-&gt;left-&gt;val = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (root-&gt;right) &#123;</span><br><span class="line">                <span class="type">int</span> tmp = root-&gt;val * <span class="number">2</span> + <span class="number">2</span>;</span><br><span class="line">                ++map[tmp];</span><br><span class="line">                root-&gt;right-&gt;val = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">dfs</span>(root-&gt;left);</span><br><span class="line">            <span class="built_in">dfs</span>(root-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">FindElements</span>(TreeNode* root) &#123;</span><br><span class="line">        root-&gt;val = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(root);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">find</span><span class="params">(<span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (target == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> map[target] &gt; <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your FindElements object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * FindElements* obj = new FindElements(root);</span></span><br><span class="line"><span class="comment"> * bool param_1 = obj-&gt;find(target);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>Time:</p>
+<ul>
+<li>FindElements(): O(n)</li>
+<li>find(): O(1)</li>
+</ul>
+<p>Space: O(n)</p>
+<h3 id="dfs-bit-manipulation-approach">DFS + bit manipulation approach</h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-elements-in-a-contaminated-binary-tree/solutions/2674238/zai-shou-wu-ran-de-er-cha-shu-zhong-cha-5l56x">在受污染的二叉树中查找元素</a></p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">FindElements</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    TreeNode *root;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">FindElements</span>(TreeNode* root) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;root = root;</span><br><span class="line">        <span class="built_in">dfs</span>(root, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(TreeNode *node, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        node-&gt;val = val;</span><br><span class="line">        <span class="built_in">dfs</span>(node-&gt;left, val * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">dfs</span>(node-&gt;right, val * <span class="number">2</span> + <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">find</span><span class="params">(<span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        target++;</span><br><span class="line">        <span class="type">int</span> k = <span class="number">30</span> - __builtin_clz(target);</span><br><span class="line">        TreeNode *node = root;</span><br><span class="line">        <span class="keyword">while</span> (k &gt;= <span class="number">0</span> &amp;&amp; node != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((target &amp; (<span class="number">1</span> &lt;&lt; k)) == <span class="number">0</span>) &#123;</span><br><span class="line">                node = node-&gt;left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                node = node-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">            k--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node != <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(min(H, log target))</p>
+<blockquote>
+<p>Returns the number of leading 0-bits in x, starting at the most significant bit position. If x is 0, the result is undefined.</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/11/LeetCode2129/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/03/11/LeetCode2129/" class="post-title-link" itemprop="url">LeetCode 2129 Capitalize the Title</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-03-11 23:43:07 / Modified: 13:40:31" itemprop="dateCreated datePublished" datetime="2024-03-11T23:43:07+08:00">2024-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/capitalize-the-title/">Capitalize the Title - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>字符串分割后模拟.</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">capitalizeTitle</span><span class="params">(string title)</span> </span>&#123;</span><br><span class="line">        vector&lt;string&gt; tokens;</span><br><span class="line">        <span class="function">stringstream <span class="title">ss</span><span class="params">(title)</span></span>;</span><br><span class="line">        string tmp;</span><br><span class="line">        <span class="keyword">while</span> (<span class="built_in">getline</span>(ss, tmp, <span class="string">&#x27; &#x27;</span>)) &#123;</span><br><span class="line">            tokens.<span class="built_in">push_back</span>(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        string res = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (string&amp; token : tokens) &#123;</span><br><span class="line">            <span class="type">int</span> n = token.<span class="built_in">size</span>();</span><br><span class="line">            <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (n &gt; <span class="number">2</span>) &#123;</span><br><span class="line">                token[i] = <span class="built_in">toupper</span>(token[i]);</span><br><span class="line">                <span class="keyword">while</span> (++i &lt; n) &#123;</span><br><span class="line">                    token[i] = <span class="built_in">tolower</span>(token[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">                    token[i] = <span class="built_in">tolower</span>(token[i]);</span><br><span class="line">                    ++i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res += token + <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res.<span class="built_in">pop_back</span>();</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(n)</p>
+<h2 id="notes">Notes</h2>
+<h3 id="better-approach">Better approach</h3>
+<h4 id="faster-stringstream-split-approach">Faster <code>stringstream</code> split approach</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">capitalizeTitle</span><span class="params">(string title)</span> </span>&#123;</span><br><span class="line">        <span class="function">stringstream <span class="title">ss</span><span class="params">(title)</span></span>;</span><br><span class="line">        string s;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">while</span>(ss &gt;&gt; s) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!res.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                res += <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (s.<span class="built_in">size</span>() &gt; <span class="number">2</span>) &#123;</span><br><span class="line">                res += <span class="built_in">toupper</span>(s[<span class="number">0</span>]);</span><br><span class="line">                s = s.<span class="built_in">substr</span>(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">const</span> <span class="type">char</span>&amp; c : s) &#123;</span><br><span class="line">                res += <span class="built_in">tolower</span>(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="istringstream-split-approach"><code>istringstream</code> split approach</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">capitalizeTitle</span><span class="params">(string title)</span> </span>&#123;</span><br><span class="line">        <span class="function">istringstream <span class="title">iss</span><span class="params">(title)</span></span>;</span><br><span class="line">        string res;</span><br><span class="line">        string s;</span><br><span class="line">        <span class="keyword">while</span> (iss &gt;&gt; s) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!res.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                res += <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (s.<span class="built_in">size</span>() &gt; <span class="number">2</span>) &#123;</span><br><span class="line">                res += <span class="built_in">toupper</span>(s[<span class="number">0</span>]);</span><br><span class="line">                s = s.<span class="built_in">substr</span>(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">const</span> <span class="type">char</span>&amp; c : s) &#123;</span><br><span class="line">                res += <span class="built_in">tolower</span>(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(n)</p>
+<h4 id="approach-without-split">approach without split</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">capitalizeTitle</span><span class="params">(string title)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = title.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> r = <span class="number">0</span>;   <span class="comment">// 单词左右边界（左闭右开）</span></span><br><span class="line">        <span class="keyword">while</span> (r &lt; n) &#123;</span><br><span class="line">            <span class="keyword">while</span> (r &lt; n &amp;&amp; title[r] != <span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">                ++r;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 对于每个单词按要求处理</span></span><br><span class="line">            <span class="keyword">if</span> (r - l &gt; <span class="number">2</span>) &#123;</span><br><span class="line">                title[l++] = <span class="built_in">toupper</span>(title[l]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">                title[l++] = <span class="built_in">tolower</span>(title[l]);</span><br><span class="line">            &#125;</span><br><span class="line">            l = ++r;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> title;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n)</p>
+<p>Space: O(1)</p>
+<h3 id="standard-library-header"><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/header/cctype">Standard library header <cctype></a></h3>
+<ul>
+<li><code>std::toupper()</code></li>
+<li><code>std::tolower()</code></li>
+</ul>
+<h3 id="split-a-string---c-f.a.q."><a target="_blank" rel="noopener" href="https://cplusplus.com/faq/sequences/strings/split/">Split a string - C++ F.A.Q.</a></h3>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/11/LeetCode791/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="XRose">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | XRose's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/03/11/LeetCode791/" class="post-title-link" itemprop="url">LeetCode 791 Custom Sort String</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-03-11 23:43:07 / Modified: 14:59:14" itemprop="dateCreated datePublished" datetime="2024-03-11T23:43:07+08:00">2024-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/custom-sort-string/">Custom Sort String - LeetCode</a></p>
+</blockquote>
+<h2 id="thinkings">Thinkings</h2>
+<p>自定义比较函数排序.</p>
+<h2 id="codes">Codes</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">customSortString</span><span class="params">(string order, string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; orderMap;</span><br><span class="line">        <span class="type">int</span> n = order.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            orderMap[order[i]] = i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>(), [&amp;](<span class="type">char</span> a, <span class="type">char</span> b) &#123;</span><br><span class="line">            <span class="keyword">return</span> orderMap[a] &lt; orderMap[b];</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(mlogm + k)</p>
+<p>Space: O(k)</p>
+<blockquote>
+<p><code>m</code> is the length of <code>s</code></p>
+<p><code>k</code> is a constant value: 26</p>
+<p><code>sort()</code> 's space complexity is O(mlogm)</p>
+</blockquote>
+<h2 id="notes">Notes</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/custom-sort-string/solutions/1963410/zi-ding-yi-zi-fu-chuan-pai-xu-by-leetcod-1qvf">自定义字符串排序 - 力扣官方题解</a></p>
+</blockquote>
+<h3 id="better-custom-sort">Better custom sort</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">customSortString</span><span class="params">(string order, string s)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">val</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; order.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">            val[order[i] - <span class="string">&#x27;a&#x27;</span>] = i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>(), [&amp;](<span class="type">char</span> c0, <span class="type">char</span> c1) &#123;</span><br><span class="line">            <span class="keyword">return</span> val[c0 - <span class="string">&#x27;a&#x27;</span>] &lt; val[c1 - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(mlogm + k)</p>
+<p>Space: O(k)</p>
+<blockquote>
+<p><code>m</code> is the length of <code>s</code></p>
+<p><code>k</code> is a constant value: 26</p>
+<p><code>sort()</code> 's space complexity is O(mlogm)</p>
+</blockquote>
+<h3 id="counting-sort">Counting sort</h3>
+<blockquote>
+<p>由于字符集的大小为 <code>26</code> ，我们也可以考虑使用计数排序代替普通的排序方法.</p>
+<p>我们首先遍历字符串 <code>s</code> ，使用数组或哈希表统计每个字符出现的次数. 随后遍历字符串 <code>order</code> 中的每个字符 <code>c</code> ，如果其在 <code>s</code> 中出现了 <code>k</code> 次，就在答案的末尾添加 <code>k</code> 个 <code>c</code> ，并将数组或哈希表中对应的次数置为 <code>0</code> . 最后我们遍历一次哈希表，对于所有次数 <code>k</code> 非 <code>0</code> 的键值对 <code>(c, k)</code> ，在答案的末尾添加 <code>k</code> 个 <code>c</code> 即可.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">customSortString</span><span class="params">(string order, string s)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">freq</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> ch : s) &#123;</span><br><span class="line">            ++freq[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        string ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> ch : order) &#123;</span><br><span class="line">            <span class="keyword">if</span> (freq[ch - <span class="string">&#x27;a&#x27;</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                ans += <span class="built_in">string</span>(freq[ch - <span class="string">&#x27;a&#x27;</span>], ch);</span><br><span class="line">                freq[ch - <span class="string">&#x27;a&#x27;</span>] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (freq[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                ans += <span class="built_in">string</span>(freq[i], i + <span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n + k)</p>
+<p>Space: O(k)</p>
+<blockquote>
+<p><code>m</code> is the length of <code>s</code></p>
+<p><code>k</code> is a constant value: 26</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -518,548 +1141,6 @@
 <p>直接遍历链表模拟统计即可.</p>
 <h2 id="codes">Codes</h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">gameResult</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> oddPoints = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> evenPoints = <span class="number">0</span>;</span><br><span class="line">        ListNode* evenNode = head;</span><br><span class="line">        ListNode* oddNode;</span><br><span class="line">        <span class="keyword">while</span> (evenNode) &#123;</span><br><span class="line">            oddNode = evenNode-&gt;next;</span><br><span class="line">            <span class="type">int</span> evenVal = evenNode-&gt;val;</span><br><span class="line">            <span class="type">int</span> oddVal = oddNode-&gt;val;</span><br><span class="line">            <span class="keyword">if</span> (evenVal &gt; oddVal) &#123;</span><br><span class="line">                ++evenPoints;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                ++oddPoints;</span><br><span class="line">            &#125;</span><br><span class="line">            evenNode = oddNode-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (evenPoints &gt; oddPoints) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Even&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (evenPoints &lt; oddPoints) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Odd&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Tie&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n)</p>
-<p>Space: O(1)</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/09/LeetCode3063/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/09/LeetCode3063/" class="post-title-link" itemprop="url">LeetCode 3063 Linked List Frequency</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-03-09 23:43:07 / Modified: 14:34:47" itemprop="dateCreated datePublished" datetime="2024-03-09T23:43:07+08:00">2024-03-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/Premium/" itemprop="url" rel="index"><span itemprop="name">Premium</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/linked-list-frequency/">Linked List Frequency - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>用一个 hash-table 记录各个数值的 frequency ，再遍历 hash-table 构造 linked-list ，可以用前插法.</p>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">frequenciesOfElements</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; frequencyMap;</span><br><span class="line">        ListNode* p = head;</span><br><span class="line">        <span class="keyword">while</span> (p) &#123;</span><br><span class="line">            ++frequencyMap[p-&gt;val];</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* res = <span class="keyword">new</span> <span class="built_in">ListNode</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; [_, v] : frequencyMap) &#123;</span><br><span class="line">            p = <span class="keyword">new</span> <span class="built_in">ListNode</span>(v, res-&gt;next);</span><br><span class="line">            res-&gt;next = p;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n)</p>
-<p>Space: O(n)</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/08/LeetCode2834/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/08/LeetCode2834/" class="post-title-link" itemprop="url">LeetCode 2834 Find the Minimum Possible Sum of a Beautiful Array</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-03-08 23:43:07 / Modified: 18:23:58" itemprop="dateCreated datePublished" datetime="2024-03-08T23:43:07+08:00">2024-03-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-minimum-possible-sum-of-a-beautiful-array/">Find the Minimum Possible Sum of a Beautiful Array - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>贪心策略，又因为数据多，要同时考虑时间和空间. 时间方面直接用等差数列求和将 O(n) 降为 O(1) ，而空间要用 <code>long long</code> 储存数据.</p>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumPossibleSum</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">const</span> <span class="type">int</span> MOD = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> m = target &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= m) &#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="type">long</span> <span class="type">long</span>) (<span class="number">1</span> + n) * n / <span class="number">2</span> % MOD;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">return</span> ((<span class="number">1</span> + m) * m / <span class="number">2</span> + (target + target + (n - m) - <span class="number">1</span>) * (n - m) / <span class="number">2</span>) % MOD;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(1)</p>
-<p>Space: O(1)</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/08/LeetCode3005/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/08/LeetCode3005/" class="post-title-link" itemprop="url">LeetCode 3005 Count Elements With Maximum Frequency</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-03-08 23:43:07 / Modified: 18:33:16" itemprop="dateCreated datePublished" datetime="2024-03-08T23:43:07+08:00">2024-03-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/count-elements-with-maximum-frequency/">Count Elements With Maximum Frequency - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>用数组维护每个数的 frequency ，再遍历数组维护最大的 frequency 及其数量，返回其乘积即可.</p>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxFrequencyElements</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">frequency</span><span class="params">(<span class="number">101</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="type">int</span>&amp; num : nums) &#123;</span><br><span class="line">            ++frequency[num];</span><br><span class="line">            <span class="keyword">if</span> (frequency[num] &gt; max) &#123;</span><br><span class="line">                count = <span class="number">1</span>;</span><br><span class="line">                max = frequency[num];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (frequency[num] == max) &#123;</span><br><span class="line">                ++count;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count * max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n)</p>
-<p>Space: O(1)</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/07/LeetCode2575/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/07/LeetCode2575/" class="post-title-link" itemprop="url">LeetCode 2575 Find the Divisibility Array of a String</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-03-07 23:43:07 / Modified: 11:50:05" itemprop="dateCreated datePublished" datetime="2024-03-07T23:43:07+08:00">2024-03-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-divisibility-array-of-a-string/">Find the Divisibility Array of a String - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-divisibility-array-of-a-string/solutions/2668264/zhao-chu-zi-fu-chuan-de-ke-zheng-chu-shu-pv8v">找出字符串的可整除数组 - 力扣官方题解</a></p>
-<p>我们可以将主要问题抽象为计算 <span class="math inline">\(a \; \text{mod} \; m\)</span> 以及 <span class="math inline">\((a \times 10 + b) \; \text{mod} \; m\)</span> ，而 <span class="math display">\[
-(a \times 10 + b) \; \text{mod} \; m = (a \; \text{mod} \; m \times 10 + b) \; \text{mod} \; m
-\]</span> 由此递推式可解.</p>
-</blockquote>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">divisibilityArray</span><span class="params">(string word, <span class="type">int</span> m)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="type">char</span>&amp; c : word) &#123;</span><br><span class="line">            cur = (cur * <span class="number">10</span> + (c - <span class="string">&#x27;0&#x27;</span>)) % m;</span><br><span class="line">            res.<span class="built_in">push_back</span>(cur == <span class="number">0</span> ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n)</p>
-<p>Space: O(1) 不计算返回结果</p>
-<h2 id="notes">Notes</h2>
-<h3 id="quick-multiply-approach">Quick multiply approach</h3>
-<blockquote>
-<p>可先参阅：</p>
-<p><a target="_blank" rel="noopener" href="https://oi-wiki.org/math/binary-exponentiation/">快速幂 - OI Wiki</a></p>
-</blockquote>
-<p>数据直接乘 <code>10</code> 可能会爆 <code>int</code> ，要是不想爆，可以将乘法改成加法，同时每一步都 <code>mod m</code> . 而加法还可以使用<strong>快速乘</strong>算法，将被乘数写成二进制形式，再用乘法分配律将其写成加法形式.</p>
-<p>快速乘会比普通的循环加法快一些，但花费时间还是比直接使用 <code>long long</code> 类型多.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">divisibilityArray</span><span class="params">(string word, <span class="type">int</span> m)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="type">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; c : word) &#123;</span><br><span class="line">            <span class="type">int</span> tmp = cur;</span><br><span class="line">            <span class="comment">// quick multiply: &#x27;cur = (cur * 10) % m&#x27; =&gt; &#x27;cur = (cur * 2^3 + cur * 2^1) % m&#x27;</span></span><br><span class="line">            <span class="type">int</span> k = <span class="number">10</span>;</span><br><span class="line">            <span class="type">int</span> add = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (k) &#123;</span><br><span class="line">                <span class="keyword">if</span> (k &amp; <span class="number">1</span>) &#123;</span><br><span class="line">                    add = (add + cur) % m;</span><br><span class="line">                &#125;</span><br><span class="line">                k &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">                cur = (cur + cur) % m;</span><br><span class="line">            &#125;</span><br><span class="line">            cur = add;</span><br><span class="line">            <span class="comment">// for (int i = 0; i &lt; 9; ++i) &#123;</span></span><br><span class="line">            <span class="comment">//     // calculate &#x27;(cur * 10) % m&#x27;</span></span><br><span class="line">            <span class="comment">//     cur = (cur + tmp) % m;</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">            cur = (cur + (c - <span class="string">&#x27;0&#x27;</span>)) % m;</span><br><span class="line">            res.<span class="built_in">push_back</span>(cur == <span class="number">0</span> ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n)</p>
-<p>Space: O(1) 不计算返回结果.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/07/LeetCode876/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/07/LeetCode876/" class="post-title-link" itemprop="url">LeetCode 876 Middle of the Linked List</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-03-07 23:43:07 / Modified: 11:49:38" itemprop="dateCreated datePublished" datetime="2024-03-07T23:43:07+08:00">2024-03-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/middle-of-the-linked-list/">Middle of the Linked List - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>快慢指针.</p>
-<h2 id="codes">Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">middleNode</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* fast = head;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast &amp;&amp; fast-&gt;next) &#123;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n)</p>
-<p>Space: O(1)</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/06/LeetCode141/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="XRose">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | XRose's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/06/LeetCode141/" class="post-title-link" itemprop="url">LeetCode 141 Linked List Cycle</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-03-06 23:43:07 / Modified: 15:23:51" itemprop="dateCreated datePublished" datetime="2024-03-06T23:43:07+08:00">2024-03-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/linked-list-cycle/">Linked List Cycle - LeetCode</a></p>
-</blockquote>
-<h2 id="thinkings">Thinkings</h2>
-<p>可以用 hash table 记录每个节点的 parent 节点，也可以用快慢指针遍历判断俩指针会否重叠. 因为若链表中存在环，则快慢指针必会遇上.</p>
-<h2 id="fast-slow-pointers-codes">Fast-slow pointers Codes</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* fast = head;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast &amp;&amp; fast-&gt;next) &#123;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (fast == slow) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>Time: O(n)</p>
 <p>Space: O(1)</p>
 
